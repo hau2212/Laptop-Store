@@ -131,7 +131,7 @@ class AdminController extends Controller
             $product->update(['image' => $imageName]);
         }
 
-        return redirect()->route('admin')->with('success', 'Cập nhật sản phẩm thành công!');
+        return redirect()->route('admin.products')->with('success', 'Cập nhật sản phẩm thành công!');
     }
 
 }

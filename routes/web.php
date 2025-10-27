@@ -24,8 +24,8 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/admin/products' , 'App\Http\Controllers\Admin\AdminController@createProducts')->name('admin.products');
     Route::post('/admin/product/store' , 'App\Http\Controllers\Admin\AdminController@store')->name('admin.product.store');
     Route::delete('/admin/product/delete/{id}' , 'App\Http\Controllers\Admin\AdminController@delete')->name('admin.product.delete');
-    Route::get('/admin/product/edit/{id}', 'App\Http\Controllers\admin\AdminController@edit')->name('admin.product.edit');
-    Route::put('/admin/product/update/{id}', 'App\Http\Controllers\admin\AdminController@update')->name('admin.product.update');
+    Route::get('/admin/products/edit/{id}', 'App\Http\Controllers\admin\AdminController@edit')->name('admin.product.edit');
+    Route::put('/admin/products/update/{id}', 'App\Http\Controllers\admin\AdminController@update')->name('admin.product.update');
     Route::get('/admin/users', 'App\Http\Controllers\Admin\AdminUsersController@index')->name('admin.users');
 });
 

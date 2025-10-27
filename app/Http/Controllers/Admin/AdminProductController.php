@@ -13,7 +13,7 @@ final class AdminProductController extends Controller
 {
     public function index(): View
     {
-        return view('admin.product.product', [
+        return view('admin.product', [
             'title'    => 'Admin - Products',
             'products' => Product::query()->latest('id')->get(),
         ]);
