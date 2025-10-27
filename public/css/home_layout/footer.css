@@ -1,0 +1,50 @@
+:root{
+  --red: #d32f2f;
+  --wrap-max: 1200px;
+  --sidebar-w: 220px;    /* phải trùng với nav_bar.css */
+}
+
+/* Khối footer */
+.footer{
+  position: relative;
+  z-index: 1200;                       /* cao hơn sidebar */
+  background: var(--red);
+  color: #fff;
+  border-radius: 4px;
+
+  /* thẳng hàng với content: chừa sidebar bên trái */
+  margin: 10px 12px 10px calc(var(--sidebar-w) + 24px);
+
+  padding: 24px 16px;
+}
+
+/* Giới hạn bề ngang bên trong giống content */
+.footer .container{
+  max-width: var(--wrap-max);
+}
+
+/* Logo TO */
+.footer .footer-logo{
+  display: block;
+  height: 140px !important;            /* chỉnh kích thước logo ở đây */
+  width: auto !important;
+  max-height: none !important;
+  object-fit: contain;
+}
+
+/* chữ nhỏ trong footer */
+.footer .generic{ margin: 0; opacity: .95; font-weight: 500; }
+
+/* link trong footer */
+.footer a{ color:#fff; text-decoration:none; }
+.footer a:hover{ text-decoration: underline; }
+
+/* Mobile: sidebar không fixed -> bỏ lề trái, logo thu nhỏ */
+@media (max-width: 992px){
+  .footer{ margin: 10px; }
+  .footer .footer-logo{ height: 110px !important; }
+}
+@media (max-width: 576px){
+  .footer{ padding: 16px 12px; }
+  .footer .footer-logo{ height: 90px !important; }
+}
