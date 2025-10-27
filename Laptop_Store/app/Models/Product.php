@@ -19,4 +19,7 @@ class Product extends Model
         'image',
         'staus'
     ];
+
+    
+
 }

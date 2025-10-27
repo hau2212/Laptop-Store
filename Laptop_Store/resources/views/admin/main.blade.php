@@ -77,9 +77,9 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="image" class="form-label">Hình ảnh</label>
-                    <input type="file" name="image" id="image" class="form-control">
-                    @error('image') <small class="text-danger">{{ $message }}</small> @enderror
+                    <label for="images" class="form-label">Hình ảnh</label>
+                    <input type="file" name="images" id="images" class="form-control" multiple>
+                    @error('images') <small class="text-danger">{{ $message }}</small> @enderror
                 </div>
 
                 <button type="submit" class="btn btn-primary">Thêm sản phẩm</button>

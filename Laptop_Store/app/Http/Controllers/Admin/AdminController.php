@@ -71,11 +71,14 @@ class AdminController extends Controller
         ]);
 
     // 3️ . Nếu có hình thì xử lý upload
-    if ($request->hasFile('image')) {
-            $imageName = $product->slug . '.' . $request->file('image')->extension();
-            $request->file('image')->storeAs('products', $imageName, 'public');
-            $product->update(['image' => $imageName]);
-        }
+    if($request->hasFile('image')){
+        $imageName = $product->slug . '.' . $request->file('image')->extension();
+        $request->file('image')->storeAs('products', $imageName, 'public');
+
+        // Cập nhật tên file vào sản phẩm
+        $product->update(['image' => $imageName]);
+    }
+
     
 
     // 4️ . Quay lại trang trước và báo thành công
@@ -87,6 +90,7 @@ class AdminController extends Controller
         Product::destroy($id);
         return back();
     }
+
 
      public function edit($id){
         $product = Product::findOrFail($id);
@@ -125,13 +129,23 @@ class AdminController extends Controller
         ]);
 
         // Cập nhật hình ảnh nếu có upload mới
-        if ($request->hasFile('image')) {
-            $imageName = $product->slug . '.' . $request->file('image')->extension();
-            $request->file('image')->storeAs('products', $imageName, 'public');
-            $product->update(['image' => $imageName]);
+        if($request->hasFile('image')){
+        $imageName = $product->slug . '.' . $request->file('image')->extension();
+        $request->file('image')->storeAs('products', $imageName, 'public');
+
+        // Cập nhật tên file vào sản phẩm
+        $product->update(['image' => $imageName]);
         }
+            return redirect()->route('admin')->with('success', 'Cập nhật sản phẩm thành công!');
+        }
+######################function dung de quan ly nguoi dung ##########################
+        public function manageUsers(){
+            $viewData= [];
+            $viewData['title'] = "Admin - Manage Users" ;
+            $viewData['users'] = User::all();
+    
+            return view('admin.users') ->with("viewData", $viewData);
+        }
+###################### END function dung de quan ly nguoi dung ##########################
 
-        return redirect()->route('admin')->with('success', 'Cập nhật sản phẩm thành công!');
-    }
-
-}
+}       
