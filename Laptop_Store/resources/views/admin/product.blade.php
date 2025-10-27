@@ -3,7 +3,9 @@
 @section('content')
 <div class="card">
    <div class="card-header">
+    
    Manage Products
+
    </div>
    <div class="card-body">
        <table class="table table-bordered table-striped">

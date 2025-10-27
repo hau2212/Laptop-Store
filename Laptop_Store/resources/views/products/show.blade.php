@@ -1,4 +1,4 @@
-@extends('layouts.index')  {{-- Kế thừa layout chung --}}
+@extends('layouts.app')  {{-- Kế thừa layout chung --}}
 
 @section('style')
   {{-- Nạp CSS riêng cho trang chi tiết sản phẩm --}}

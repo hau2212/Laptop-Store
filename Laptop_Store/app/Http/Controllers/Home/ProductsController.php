@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Home;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller; // ✅ thêm dòng này
-class productsController extends Controller
+class ProductsController extends Controller
 {
      public function index()
     {

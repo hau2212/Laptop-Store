@@ -28,7 +28,7 @@
     <!-- ===== HEADER / NAVBAR ===== -->
     <nav class="navbar navbar-expand-lg  sticky-top shadow-sm custom_navbar header">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="{{ Route('home') }}">
+            <a class="navbar-brand d-flex align-items-center" href="{{ Route('home.main') }}">
                 <img src="{{ asset('img/logo.png') }}" alt="Logo" height="55" class="me-2">
             </a>
 
@@ -52,7 +52,7 @@
                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link hover_link {{ request()->routeIs('home') ? 'active' : '' }}"
-                        href="{{ route('home') }}">Home</a>
+                        href="{{ route('home.main') }}">Home</a>
                     </li>
                     
                     <li class="nav-item">
@@ -67,8 +67,16 @@
 
                     <ul class="navbar-nav ms-lg-3">
                     <li class="nav-item">
-                        <a class="nav-link hover_link_login {{ request()->is('login') ? 'active' : '' }}"
-                        href="{{ url('/login') }}"><i class="fa-solid fa-user me-1"></i> Login</a>
+                    @guest
+                        <a class="nav-link active" href="{{ route('login') }}">Login</a>
+                        <a class="nav-link active" href="{{ route('register') }}">Register</a>
+                        @else
+                        <form id="logout" action="{{ route('logout') }}" method="POST">
+                        <a role="button" class="nav-link active"
+                        onclick="document.getElementById('logout').submit();">Logout</a>
+                        @csrf
+                        </form>
+                    @endguest
                     </li>
                 </ul>
             </div>
