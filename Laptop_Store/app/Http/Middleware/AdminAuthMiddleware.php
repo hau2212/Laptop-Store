@@ -16,10 +16,11 @@ class AdminAuthMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::user() && Auth::user()->getRole() == 'admin') {
+        if (Auth::user() && Auth::user()->role === 'admin') {
             return $next($request);
-        } else {
-            return redirect()->route('home.main');
+        } 
+        else {
+            return redirect()->route('home.main')->with('error', 'You do not have admin access.');
         }
     }
 }
