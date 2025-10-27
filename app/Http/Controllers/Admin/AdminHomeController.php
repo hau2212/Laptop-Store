@@ -9,6 +9,6 @@ final class AdminHomeController extends Controller
     {
         $viewData = [];
         $viewData["title"] = "Admin Page - Admin - Online Store";
-        return view('admin.home.admin')->with("viewData", $viewData);
+        return view('admin.main')->with("viewData", $viewData);
     }
 }

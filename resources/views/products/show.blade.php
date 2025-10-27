@@ -21,7 +21,7 @@
       <section class="left_main">
         <div class="left_product">
           <img class="img_product"
-               src="{{ asset('storage/' . $viewData['products']->image) }}"
+               src="{{ asset('storage/products/' . $viewData['products']->image) }}"
                alt="{{ $viewData['products']->name }}">
         </div>
 
