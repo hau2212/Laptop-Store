@@ -18,7 +18,7 @@
         <div class="box_banner">   {{-- Mỗi “ô” sản phẩm: width cố định để căn giữa đẹp --}}
           <a href="{{ route('product.show', ['id' => $product->id]) }}" class="card"> {{-- Card có thể click toàn khối --}}
             <img class="img_banner"
-                 src="{{ asset('storage/' . $product->image) }}"     {{-- Ảnh sản phẩm (yêu cầu storage:link) --}}
+                 src="{{ asset('storage/products/' . $product->image) }}"     {{-- Ảnh sản phẩm (yêu cầu storage:link) --}}
                  alt="{{ $product->name }}">                         {{-- Alt để SEO + truy cập --}}
 
             <div class="card-body">  {{-- Vùng text của card --}}
@@ -54,7 +54,7 @@
         <div class="box_banner">
           <a href="{{ route('product.show', ['id' => $product->id]) }}" class="card bg-dark text-white"> {{-- Card nền tối --}}
             <img class="img_banner"
-                 src="{{ asset('storage/' . $product->image) }}"
+                 src="{{ asset('storage/products/' . $product->image) }}"
                  alt="{{ $product->name }}">
 
             <div class="card-img-overlay"> {{-- Overlay chữ trên ảnh khi dùng bg-dark --}}

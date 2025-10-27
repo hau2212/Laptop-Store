@@ -141,7 +141,7 @@
                         </nav>
 
                 <!-- Nội dung phải dịch sang phải bằng padding hoặc margin-left -->
-                <div class="col-md-9 col-lg-10 px-4" style="margin-left: 16.6667%; /* tương đương col-md-3 */">
+                <div class="col-md-9 col-lg-10 px-4" >
                     @yield('content')
                 </div>
             </div>
