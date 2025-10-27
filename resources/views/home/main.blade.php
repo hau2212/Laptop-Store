@@ -84,4 +84,6 @@
 </div>
 @endsection
 
-@section('footer', $viewData['footer']) {{-- Nội dung dòng bản quyền/ghi chú hiển thị ở footer --}}
+@section('footer')
+  © 2024 LaptopShop. All rights reserved.
+@endsection

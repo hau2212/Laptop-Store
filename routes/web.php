@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\AdminAuthMiddleware;
 
-Route::get('/home' , 'App\Http\Controllers\Home\HomeController@index')->name('home.main');
+Route::get('/' , 'App\Http\Controllers\Home\HomeController@index')->name('home.main');
 Route::get('/about' , 'App\Http\Controllers\Home\HomeController@about')->name('home.about');
 Route::get('/contact' , 'App\Http\Controllers\Home\ContactController@index')->name('home.contact');
 Route::post('/contact/submit' , 'App\Http\Controllers\Home\ContactController@submitForm')->name('contact.submit');
@@ -27,6 +27,14 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/admin/products/edit/{id}', 'App\Http\Controllers\admin\AdminController@edit')->name('admin.product.edit');
     Route::put('/admin/products/update/{id}', 'App\Http\Controllers\admin\AdminController@update')->name('admin.product.update');
     Route::get('/admin/users', 'App\Http\Controllers\Admin\AdminUsersController@index')->name('admin.users');
+
+
+    Route::get('/admin/categories', 'App\Http\Controllers\Admin\AdminCatogriesController@index')->name('admin.categories.index');
+    Route::get('/admin/categories/createCatogy', 'App\Http\Controllers\Admin\AdminCatogriesController@create')->name('admin.categories.create');
+    Route::post('/admin/categories', 'App\Http\Controllers\Admin\AdminCatogriesController@store')->name('admin.categories.store');
+    Route::get('/admin/categories/{category}/editCatogy', 'App\Http\Controllers\Admin\AdminCatogriesController@edit')->name('admin.categories.edit');
+    Route::put('/admin/categories/{category}', 'App\Http\Controllers\Admin\AdminCatogriesController@update')->name('admin.categories.update');
+    Route::delete('/admin/categories/{category}', 'App\Http\Controllers\Admin\AdminCatogriesController@destroy')->name('admin.categories.destroy');
 });
 
 Route::prefix('admin/users')->name('admin.users.')->group(function () {
