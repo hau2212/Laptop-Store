@@ -10,11 +10,7 @@
 @section('content')
 <div class="home_container">  {{-- Khung tổng của trang Home: viền đỏ, nền trắng, chừa chỗ sidebar --}}
 
-<<<<<<< HEAD
   <div class="border_full"> he</div>  {{-- Dải phân cách đỏ phía trên --}}
-=======
-  <div class="border_full"></div>  {{-- Dải phân cách đỏ phía trên --}}
->>>>>>> origin/nguyen-main
 
   <div class="products_wrap">  {{-- Giới hạn bề ngang & căn giữa toàn bộ cụm sản phẩm --}}
     <div class="row_banner">   {{-- Hàng sản phẩm: flex-wrap + justify-center --}}
@@ -22,11 +18,7 @@
         <div class="box_banner">   {{-- Mỗi “ô” sản phẩm: width cố định để căn giữa đẹp --}}
           <a href="{{ route('product.show', ['id' => $product->id]) }}" class="card"> {{-- Card có thể click toàn khối --}}
             <img class="img_banner"
-<<<<<<< HEAD
                  src="{{ asset('storage/products/' . $product->image) }}"     {{-- Ảnh sản phẩm (yêu cầu storage:link) --}}
-=======
-                 src="{{ asset('storage/' . $product->image) }}"     {{-- Ảnh sản phẩm (yêu cầu storage:link) --}}
->>>>>>> origin/nguyen-main
                  alt="{{ $product->name }}">                         {{-- Alt để SEO + truy cập --}}
 
             <div class="card-body">  {{-- Vùng text của card --}}
@@ -62,11 +54,7 @@
         <div class="box_banner">
           <a href="{{ route('product.show', ['id' => $product->id]) }}" class="card bg-dark text-white"> {{-- Card nền tối --}}
             <img class="img_banner"
-<<<<<<< HEAD
                  src="{{ asset('storage/products/' . $product->image) }}"
-=======
-                 src="{{ asset('storage/' . $product->image) }}"
->>>>>>> origin/nguyen-main
                  alt="{{ $product->name }}">
 
             <div class="card-img-overlay"> {{-- Overlay chữ trên ảnh khi dùng bg-dark --}}
@@ -96,10 +84,6 @@
 </div>
 @endsection
 
-<<<<<<< HEAD
 @section('footer')
   © 2024 LaptopShop. All rights reserved.
 @endsection
-=======
-@section('footer', $viewData['footer']) {{-- Nội dung dòng bản quyền/ghi chú hiển thị ở footer --}}
->>>>>>> origin/nguyen-main

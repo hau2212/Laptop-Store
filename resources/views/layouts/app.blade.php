@@ -20,10 +20,7 @@
     <link rel="stylesheet" href="{{ asset('css/home_layout/background.css') }}">
     <link rel="stylesheet" href="{{ asset('css/home_layout/footer.css') }}">
     <link rel="stylesheet" href="{{ asset('css/home_layout/header.css') }}">
-<<<<<<< HEAD
     <link rel="stylesheet" href="{{ asset('css/home_main/content_container.css') }}">
-=======
->>>>>>> origin/nguyen-main
 
     @yield('style')
 </head>
@@ -76,25 +73,12 @@
                     <ul class="navbar-nav ms-lg-3">
                     <li class="nav-item">
                     @guest
-<<<<<<< HEAD
-
-                        <a class="nav-link active" href="{{ route('login') }}">Login</a> 
-                        <a class="nav-link active" href="{{ route('register') }}">Register</a> 
-                        @else
-
-                        <a class="nav-link active" href="{{ route('myaccount.orders') }}">My Orders</a>
-                        
-                        <form id="logout" action="{{ route('logout') }}" method="POST">
-                            <a role="button" class="nav-link active"
-                            onclick="document.getElementById('logout').submit();">Logout</a>
-=======
                         <a class="nav-link active" href="{{ route('login') }}">Login</a>
                         @else
                         <a class="nav-link active" href="{{ route('myaccount.orders') }}">My Orders</a>
                         <form id="logout" action="{{ route('logout') }}" method="POST">
                         <a role="button" class="nav-link active"
                         onclick="document.getElementById('logout').submit();">Logout</a>
->>>>>>> origin/nguyen-main
                         @csrf
                         </form>
                     @endguest
@@ -126,7 +110,6 @@
                                         Laptop
                                     </a>
                                     <ul class="dropdown-menu submenu">
-<<<<<<< HEAD
                                         <li><a class="dropdown-item" href="#">MSI</a></li>
                                         <li><a class="dropdown-item" href="#">ACER</a></li>
                                         <li><a class="dropdown-item" href="#">ASUS</a></li>
@@ -137,17 +120,11 @@
                                         <li><a class="dropdown-item" href="#">LG</a></li>
                                         <li><a class="dropdown-item" href="#">GIGABYTE</a></li>
                                         <li><a class="dropdown-item" href="#">MASSTEL</a></li>
-=======
-                                        <li><a class="dropdown-item" href="#">User Roles</a></li>
-                                        <li><a class="dropdown-item" href="#">Access Logs</a></li>
-                                        <li><a class="dropdown-item" href="#">Firewall Rules</a></li>
->>>>>>> origin/nguyen-main
                                     </ul>
                                 </li>
                                 
                                 <li class="nav-item dropdown">
                                     <a href="#" class="nav-link  dropdown-toggle" data-bs-toggle="dropdown">
-<<<<<<< HEAD
                                         Thiết bị ngoại vi
                                     </a>
                                     <ul class="dropdown-menu submenu">
@@ -160,20 +137,11 @@
                                         <li><a class="dropdown-item" href="#">Ổ cứng/SSD gắn ngoài</a></li>
                                         <li><a class="dropdown-item" href="#">USB Hub / Dock</a></li>
                                         <li><a class="dropdown-item" href="#">Cáp & Chuyển đổi</a></li>
-=======
-                                        Computer
-                                    </a>
-                                    <ul class="dropdown-menu submenu">
-                                        <li><a class="dropdown-item" href="#">User Roles</a></li>
-                                        <li><a class="dropdown-item" href="#">Access Logs</a></li>
-                                        <li><a class="dropdown-item" href="#">Firewall Rules</a></li>
->>>>>>> origin/nguyen-main
                                     </ul>
                                 </li>
 
 
                                 <li class="nav-item mb-2">
-<<<<<<< HEAD
                                     <a class="nav-link text-dark" href="#"><i class="fa-solid fa-network-wired me-2"></i> Phụ kiện</a>
                                 </li>
                                 <li class="nav-item mb-2">
@@ -190,25 +158,12 @@
                                 </li>
                                 <li class="nav-item mb-2">
                                     <a class="nav-link text-dark" href="#"><i class="fa-solid fa-bug me-2"></i>Hỗ trợ</a>
-=======
-                                    <a class="nav-link text-dark" href="#"><i class="fa-solid fa-network-wired me-2"></i> Accessories</a>
-                                </li>
-                                <li class="nav-item mb-2">
-                                    <a class="nav-link text-dark" href="#"><i class="fa-solid fa-bug me-2"></i> Stick</a>
-                                </li>
-                                <li class="nav-item mb-2">
-                                    <a class="nav-link text-dark" href="#"><i class="fa-solid fa-gear me-2"></i> Review</a>
->>>>>>> origin/nguyen-main
                                 </li>
                             </ul>
                         </nav>
 
                 <!-- Nội dung phải dịch sang phải bằng padding hoặc margin-left -->
-<<<<<<< HEAD
                 <div class="col-md-5col-lg-10 px-4">
-=======
-                <div class="col-md-9 col-lg-10 px-4" style="margin-left: 16.6667%; /* tương đương col-md-3 */">
->>>>>>> origin/nguyen-main
                     @yield('content')
                 </div>
             </div>
@@ -227,11 +182,7 @@
                             text-center : canh giữa toàn bộ nội dung
     
                         -->
-<<<<<<< HEAD
                         <img src="{{ asset('img/logo.png') }}" alt="Logo" height="40" class="mb-2 d-block mx-md-0 mx-auto">
-=======
-                        <img src="{{ asset('img/laptop.png') }}" alt="Logo" height="40" class="mb-2 d-block mx-md-0 mx-auto">
->>>>>>> origin/nguyen-main
                         <h3 class="generic"> LaptopShop</h3>
                         <p class="generic">Your one-stop shop for all laptop needs.</p>
                         <p class="mb-0">

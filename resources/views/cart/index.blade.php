@@ -2,16 +2,12 @@
 @section('title', $viewData["title"])
 @section('subtitle', $viewData["subtitle"])
 @section('content')
-<<<<<<< HEAD
 <div class="home_container">
-=======
->>>>>>> origin/nguyen-main
 <div class="card">
     <div class="card-header">
         Products in Cart
     </div>
     <div class="card-body">
-<<<<<<< HEAD
         @if(session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
@@ -24,20 +20,10 @@
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>Action</th>
-=======
-        <table class="table table-bordered table-striped text-center">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Quantity</th>
->>>>>>> origin/nguyen-main
                 </tr>
             </thead>
             <tbody>
             @foreach ($viewData["products"] as $product)
-<<<<<<< HEAD
                 <tr>
                     <td>{{ $product->getId() }}</td>
                     <td>{{ $product->getName() }}</td>
@@ -53,7 +39,7 @@
                         
                     </td>
                     <td>
-                        <form action="{{ route('cart.update', ['id' => $product->getId()]) }}" method="POST">
+                        <form action="{{ route('cart.remove', ['id' => $product->getId()]) }}" method="POST">
                             @csrf
                             <input type="hidden" name="quantity" value="0">
                             <button class="btn btn-sm btn-danger">Remove</button>
@@ -64,40 +50,16 @@
             </tbody>
         </table>
 
-=======
-            <tr>
-                <td>{{ $product->getId() }}</td>
-                <td>{{ $product->getName() }}</td>
-                <td>{{ $product->getPrice() }}</td>
-                <td>{{ session('products')[$product->getId()] }}</td>
-            </tr>
-            @endforeach
-            </tbody>
-        </table>
->>>>>>> origin/nguyen-main
         <div class="row">
             <div class="text-end">
                 <a class="btn btn-outline-secondary mb-2"><b>Total to pay:</b> ${{ $viewData["total"] }}</a>
                 @if (count($viewData["products"])>0)
-<<<<<<< HEAD
                     <a href="{{ route('cart.purchase') }}" class="btn bg-primary text-white mb-2">Purchase</a>
                     <a href="{{ route('cart.delete') }}" class="btn btn-danger mb-2">Remove all</a>
-=======
-                <a href="{{ route('cart.purchase') }}" class="btn bg-primary text-white mb-2">Purchase</a>
-                <a href="{{ route('cart.delete') }}">
-                    <button class="btn btn-danger mb-2">
-                        Remove all products from Cart
-                    </button>
-                </a>
->>>>>>> origin/nguyen-main
                 @endif
             </div>
         </div>
     </div>
 </div>
-<<<<<<< HEAD
 </div>
 @endsection
-=======
-@endsection
->>>>>>> origin/nguyen-main
