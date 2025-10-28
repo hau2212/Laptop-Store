@@ -318,8 +318,22 @@ namespace App\Models {
     /**
      * App\Models\Item
      *
+     * @property \Illuminate\Support\Carbon|null $updated_at
+     * @property \Illuminate\Support\Carbon|null $created_at
+     * @property mixed $product_id
+     * @property mixed $order_id
+     * @property mixed $price
+     * @property mixed $quantity
+     * @property int $id
      * @property-read \App\Models\Order $order
      * @property-read \App\Models\Product $product
+     * @method static \Illuminate\Database\Eloquent\Builder<Item>|Item whereId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Item>|Item whereQuantity($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Item>|Item wherePrice($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Item>|Item whereOrderId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Item>|Item whereProductId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Item>|Item whereCreatedAt($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Item>|Item whereUpdatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Item>|Item newModelQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<Item>|Item newQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<Item>|Item query()
@@ -623,9 +637,19 @@ namespace App\Models {
     /**
      * App\Models\Order
      *
+     * @property \Illuminate\Support\Carbon|null $updated_at
+     * @property \Illuminate\Support\Carbon|null $created_at
+     * @property mixed $user_id
+     * @property mixed $total
+     * @property int $id
      * @property-read \App\Models\User $user
      * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Item> $items
      * @property-read int|null $items_count
+     * @method static \Illuminate\Database\Eloquent\Builder<Order>|Order whereId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Order>|Order whereTotal($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Order>|Order whereUserId($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Order>|Order whereCreatedAt($value)
+     * @method static \Illuminate\Database\Eloquent\Builder<Order>|Order whereUpdatedAt($value)
      * @method static \Illuminate\Database\Eloquent\Builder<Order>|Order newModelQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<Order>|Order newQuery()
      * @method static \Illuminate\Database\Eloquent\Builder<Order>|Order query()

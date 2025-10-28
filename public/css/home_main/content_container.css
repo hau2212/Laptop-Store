@@ -14,8 +14,8 @@ a{ color:inherit; text-decoration:none; }
 
 /* Chừa chỗ cho sidebar: LƯU Ý — dùng cùng biến --sidebar-w ở nav_bar.css */
 .home_container{
-  margin: 20px 12px 60px calc(var(--sidebar-w) + 24px); /* <<< quan trọng */
-  padding: 16px;
+  margin: 0px 12px 50px calc(var(--sidebar-w) + 24px); /* <<< quan trọng */
+  padding: 50px;
   background: #fff;
   border: 1px solid #d32f2f;
   border-radius: 4px;

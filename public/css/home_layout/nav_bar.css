@@ -11,27 +11,21 @@
   --header-tweak: 0px;
   --sidebar-w: 220px;
 }
-
 #sidebarMenu{
   position: fixed;
-
-  /* Fallback + công thức chính xác theo header */
-  top: 100px;  /* fallback an toàn */
   top: calc(var(--header-height, 80px) + var(--header-margin-v, 20px) + var(--header-tweak, 0px));
-
   left: 10px;
   width: var(--sidebar-w);
-  height: calc(100vh - (var(--header-height, 80px) + var(--header-margin-v, 20px)) - 20px);
-  overflow-y: auto;
+
+  /* CHỈNH 2 DÒNG NÀY: */
+  max-height: 520px;         /* <— cắt ngắn menu tới 520px (đổi số tùy ý) */
+  overflow-y: auto;          /* cuộn phần thừa bên trong */
 
   background: #fff;
-  border: 2px solid #d32f2f;   /* đỏ chủ đạo */
+  border: 2px solid #d32f2f;
   border-radius: 4px;
   padding: 12px;
-
-  z-index: 900;                 /* dưới header (header nên >=1000) */
-
-  /* Quan trọng: không dùng margin-top để tránh đẩy lệch */
+  z-index: 900;
   margin-top: 0;
 }
 
