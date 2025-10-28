@@ -24,7 +24,18 @@
 
     @yield('style')
 </head>
-<body class="d-flex flex-column min-vh-100 background">
+    @php
+        $hideSidebar = request()->routeIs(
+            'home.blog',        // Blog
+            'home.about',       // About
+            'home.contact',     // Contact
+            'cart.index',       // Cart
+            'myaccount.orders', // My Orders
+            'login',            // Login
+            'register'          // Register
+        );
+    @endphp
+<body class="d-flex flex-column min-vh-100 background {{ $hideSidebar ? 'no-sidebar' : '' }}">
 
     <!-- ===== HEADER / NAVBAR ===== -->
     <nav class="navbar navbar-expand-lg  sticky-top shadow-sm custom_navbar header">
@@ -49,126 +60,88 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="mainNav">
-               <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link hover_link {{ request()->routeIs('home') ? 'active' : '' }}"
-                        href="{{ route('home.main') }}">Home</a>
-                    </li>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link hover_link {{ request()->is('blog*') ? 'active' : '' }}"
-                        href="{{ route('home.about') }}">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link hover_link {{ request()->is('contact*') ? 'active' : '' }}"
-                        href="{{ route('home.contact') }}">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link hover_link {{ request()->is('contact*') ? 'active' : '' }}"
-                        href="{{ route('cart.index') }}">Cart</a>
-                    </li>
-                    </ul>
+            <div class="collapse navbar-collapse d-flex" id="mainNav">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
-                    <ul class="navbar-nav ms-lg-3">
-                    <li class="nav-item">
-                    @guest
-                        <a class="nav-link active" href="{{ route('login') }}">Login</a>
-                        @else
-                        <a class="nav-link active" href="{{ route('myaccount.orders') }}">My Orders</a>
-                        <form id="logout" action="{{ route('logout') }}" method="POST">
-                        <a role="button" class="nav-link active"
-                        onclick="document.getElementById('logout').submit();">Logout</a>
+                <!-- Public links -->
+                <li class="nav-item">
+                <a class="nav-link hover_link {{ request()->routeIs('home') ? 'active' : '' }}"
+                    href="{{ route('home.main') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link hover_link {{ request()->is('blog*') ? 'active' : '' }}"
+                    href="{{ route('home.blog') }}">Blog</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link hover_link {{ request()->is('about*') ? 'active' : '' }}"
+                    href="{{ route('home.about') }}">About</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link hover_link {{ request()->is('contact*') ? 'active' : '' }}"
+                    href="{{ route('home.contact') }}">Contact</a>
+                </li>
+
+                @guest
+                <!-- Guest only -->
+                {{-- Login --}}
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('login') ? 'active' : '' }}"
+                    href="{{ route('login') }}" title="Login">
+                        <i class="fa-solid fa-right-to-bracket"></i> {{-- Icon đăng nhập --}}
+                    </a>
+                </li>
+                @else
+                <!-- Authenticated only -->
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('myaccount.orders') ? 'active' : '' }}"
+                    href="{{ route('myaccount.orders') }}">My Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link hover_link {{ request()->routeIs('cart.index') ? 'active' : '' }}"
+                    href="{{ route('cart.index') }}">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                </li>
+                {{-- Logout --}}
+                <li class="nav-item">
+                    <form id="logout" action="{{ route('logout') }}" method="POST" class="d-inline">
                         @csrf
-                        </form>
-                    @endguest
-                    </li>
-                </ul>
+                        <a role="button" class="nav-link" onclick="document.getElementById('logout').submit();" title="Logout">
+                            <i class="fa-solid fa-right-from-bracket"></i> {{-- Icon đăng xuất --}}
+                        </a>
+                    </form>
+                </li>
+                @endguest
+            </ul>
             </div>
+
         </div>
     </nav>
 
     <!-- ===== MAIN CONTENT ===== -->
      <!-- ===== MAIN CONTENT WITH SIDEBAR ===== -->
      @yield('sidebar')
-    <main class="flex-grow-1 py-4">
+        <main class="flex-grow-1 py-4">
         <div class="container-fluid">
             <div class="row">
-                <!-- Sidebar -->
-                    <!-- Sidebar cố định bên trái, full chiều cao -->
-                        <nav id="sidebarMenu" 
-                            class="col-md-3 col-lg-2 d-md-block  sidebar p-3 border-end">
-                       
-                            <!-- Tiêu đề menu -->
-                            <h5 class="text-dark mb-3"><i class="fa-solid fa-bars me-2"></i>Menu</h5>
 
-                            <!-- Các mục menu -->
-                            <ul class="nav flex-column">
-                                
-                                <li class="nav-item dropdown">
-                                    <a href="#" class="nav-link  dropdown-toggle" data-bs-toggle="dropdown">
-                                        Laptop
-                                    </a>
-                                    <ul class="dropdown-menu submenu">
-                                        <li><a class="dropdown-item" href="#">MSI</a></li>
-                                        <li><a class="dropdown-item" href="#">ACER</a></li>
-                                        <li><a class="dropdown-item" href="#">ASUS</a></li>
-                                        <li><a class="dropdown-item" href="#">DELL</a></li>
-                                        <li><a class="dropdown-item" href="#">HP</a></li>
-                                        <li><a class="dropdown-item" href="#">LENOVO</a></li>
-                                        <li><a class="dropdown-item" href="#">MACBOOK</a></li>
-                                        <li><a class="dropdown-item" href="#">LG</a></li>
-                                        <li><a class="dropdown-item" href="#">GIGABYTE</a></li>
-                                        <li><a class="dropdown-item" href="#">MASSTEL</a></li>
-                                    </ul>
-                                </li>
-                                
-                                <li class="nav-item dropdown">
-                                    <a href="#" class="nav-link  dropdown-toggle" data-bs-toggle="dropdown">
-                                        Thiết bị ngoại vi
-                                    </a>
-                                    <ul class="dropdown-menu submenu">
-                                       <li><a class="dropdown-item" href="#">Màn hình</a></li>
-                                        <li><a class="dropdown-item" href="#">Bàn phím</a></li>
-                                        <li><a class="dropdown-item" href="#">Chuột</a></li>
-                                        <li><a class="dropdown-item" href="#">Tai nghe</a></li>
-                                        <li><a class="dropdown-item" href="#">Loa</a></li>
-                                        <li><a class="dropdown-item" href="#">Webcam</a></li>
-                                        <li><a class="dropdown-item" href="#">Ổ cứng/SSD gắn ngoài</a></li>
-                                        <li><a class="dropdown-item" href="#">USB Hub / Dock</a></li>
-                                        <li><a class="dropdown-item" href="#">Cáp & Chuyển đổi</a></li>
-                                    </ul>
-                                </li>
+            {{-- Sidebar: chỉ hiển thị khi KHÔNG thuộc các trang ẩn --}}
+            @unless($hideSidebar)
+                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar p-3 border-end">
+                {{-- ... sidebar của bạn ... --}}
+                @include('partials.sidebar') {{-- hoặc dán nguyên sidebar hiện có --}}
+                </nav>
+            @endunless
 
-
-                                <li class="nav-item mb-2">
-                                    <a class="nav-link text-dark" href="#"><i class="fa-solid fa-network-wired me-2"></i> Phụ kiện</a>
-                                </li>
-                                <li class="nav-item mb-2">
-                                    <a class="nav-link text-dark" href="#"><i class="fa-solid fa-bug me-2"></i>Thông tin</a>
-                                </li>
-                                <li class="nav-item mb-2">
-                                    <a class="nav-link text-dark" href="#"><i class="fa-solid fa-bug me-2"></i>Địa chỉ</a>
-                                </li>
-                                <li class="nav-item mb-2">
-                                    <a class="nav-link text-dark" href="#"><i class="fa-solid fa-bug me-2"></i>Số điện thoại</a>
-                                </li>
-                                <li class="nav-item mb-2">
-                                    <a class="nav-link text-dark" href="#"><i class="fa-solid fa-gear me-2"></i>Đánh giá</a>
-                                </li>
-                                <li class="nav-item mb-2">
-                                    <a class="nav-link text-dark" href="#"><i class="fa-solid fa-bug me-2"></i>Hỗ trợ</a>
-                                </li>
-                            </ul>
-                        </nav>
-
-                <!-- Nội dung phải dịch sang phải bằng padding hoặc margin-left -->
-                <div class="col-md-5col-lg-10 px-4">
-                    @yield('content')
-                </div>
+            {{-- Cột nội dung: full-width nếu ẩn sidebar --}}
+            {{-- <div class="{{ $hideSidebar ? 'col-12 px-4' : 'col-md-9 col-lg-10 px-4' }}">
+                @yield('content')
+            </div> --}}
+            <div class='col-md-5col-lg-10 px-4'>
+                @yield('content')
             </div>
         </div>
-    </main>
+        </main>
 
     <!-- ===== FOOTER ===== -->
        <footer class="text-black py-4 footer">

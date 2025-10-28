@@ -22,5 +22,11 @@ class HomeController extends Controller
         $viewData['footer'] = " About Us \n © 2024 LaptopShop. All rights reserved.";
         return view('home.about') ->with("viewData", $viewData);
     }
-    
+    public function blog(){
+        $viewData= [];
+        $viewData['title'] = "News Technology" ;
+        $viewData['footer'] = "© 2024 LaptopShop Blog — Stay updated with the latest news, trends, and reviews in technology, laptops, and digital devices. All rights reserved.";
+        return view('home.blog') ->with("viewData", $viewData);
+    }
+
 }

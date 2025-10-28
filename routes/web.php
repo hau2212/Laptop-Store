@@ -6,6 +6,7 @@ use App\Http\Middleware\AdminAuthMiddleware;
 
 Route::get('/' , 'App\Http\Controllers\Home\HomeController@index')->name('home.main');
 Route::get('/about' , 'App\Http\Controllers\Home\HomeController@about')->name('home.about');
+Route::get('/blog' , 'App\Http\Controllers\Home\HomeController@blog')->name('home.blog');
 Route::get('/contact' , 'App\Http\Controllers\Home\ContactController@index')->name('home.contact');
 Route::post('/contact/submit' , 'App\Http\Controllers\Home\ContactController@submitForm')->name('contact.submit');
 Route::get('product/{id}' , 'App\Http\Controllers\Home\productsController@show')->name('product.show');
