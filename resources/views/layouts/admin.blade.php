@@ -36,7 +36,7 @@
                 <li><a href="{{ route('admin.dashbroad') }}">📊 Dashboard</a></li>
                 <li><a href="{{ route('admin.users.index') }}">👤 Users</a></li>
                 <li><a href="{{ route('admin.products') }}">🛒 Products</a></li>
-                <li><a href="{{ route('admin.product.store') }}">📦 Orders</a></li>
+               
                 <li><a href="{{ route('admin.categories.index') }}">📦 Catogries</a></li>
                 <li>
                 <form id="logout" action="{{ route('logout') }}" method="POST">
