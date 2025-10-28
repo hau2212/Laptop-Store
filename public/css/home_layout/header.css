@@ -37,6 +37,7 @@
   border-radius:4px;
 }
 
+
 /* Toggler cho mobile */
 .header .navbar-toggler{ border-color:rgba(255,255,255,.35); }
 .header .navbar-toggler-icon{
