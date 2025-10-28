@@ -3,7 +3,7 @@
   position: sticky;         /* nằm cố định phía trên khi cuộn */
   top: 0;
   z-index: 1000;            /* cao hơn sidebar & content */
-  height: 80px;
+  height: 60px;
   background: #d32f2f;      /* đỏ chủ đạo */
   border-radius: 4px;
   display: flex;
@@ -17,6 +17,7 @@
   width: auto;
   object-fit: contain;
 }
+
 
 /* Link trong navbar */
 .header .nav-link,
