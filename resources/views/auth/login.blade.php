@@ -1,65 +1,7 @@
 @extends('layouts.app')
 
 @section('style')
-<!-- Bootstrap 5.3 (official CDN) -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<style>
-    /* Reset nhẹ để tránh style lạ làm lệch layout */
-    html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        background: linear-gradient(135deg, #74ABE2 0%, #5563DE 100%);
-        font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
-
-    /* Wrapper để canh giữa theo chiều dọc & ngang */
-    .auth-wrapper {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 2rem;
-    }
-
-    /* Card chính */
-    .auth-card {
-        background: rgba(255,255,255,0.95);
-        border-radius: 12px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-        padding: 1.5rem;
-        width: 100%;
-        max-width: 720px; /* responsive limit */
-    }
-
-    .auth-card .heading {
-        font-weight: 700;
-        font-size: 1.5rem;
-        margin-bottom: 0.75rem;
-        color: #222;
-    }
-
-    /* Button */
-    .btn-login {
-        width: 100%;
-        background: linear-gradient(90deg,#5b63e6,#3a44b0);
-        border: none;
-        color: #fff;
-        font-weight: 600;
-        padding: .6rem 1rem;
-        border-radius: .5rem;
-    }
-    .btn-login:hover {
-        filter: brightness(0.95);
-    }
-
-    /* Khi màn nhỏ, giảm padding */
-    @media (max-width: 576px) {
-        .auth-card { padding: 1rem; border-radius: 10px; }
-    }
-</style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
 @endsection
 
 @section('content')
