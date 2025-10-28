@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{ asset('css/home_layout/background.css') }}">
     <link rel="stylesheet" href="{{ asset('css/home_layout/footer.css') }}">
     <link rel="stylesheet" href="{{ asset('css/home_layout/header.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/home_main/content_container.css') }}">
 
     @yield('style')
 </head>
@@ -72,13 +73,16 @@
                     <ul class="navbar-nav ms-lg-3">
                     <li class="nav-item">
                     @guest
-                        <a class="nav-link active" href="{{ route('login') }}">Login</a>
-                        <a class="nav-link active" href="{{ route('register') }}">Register</a>
+
+                        <a class="nav-link active" href="{{ route('login') }}">Login</a> 
+                        <a class="nav-link active" href="{{ route('register') }}">Register</a> 
                         @else
+
                         <a class="nav-link active" href="{{ route('myaccount.orders') }}">My Orders</a>
+                        
                         <form id="logout" action="{{ route('logout') }}" method="POST">
-                        <a role="button" class="nav-link active"
-                        onclick="document.getElementById('logout').submit();">Logout</a>
+                            <a role="button" class="nav-link active"
+                            onclick="document.getElementById('logout').submit();">Logout</a>
                         @csrf
                         </form>
                     @endguest

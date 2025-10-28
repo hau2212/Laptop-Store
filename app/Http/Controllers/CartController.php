@@ -78,4 +78,33 @@ class CartController extends Controller
         $request->session()->forget('products');
         return back();
     }
+
+     public function updateQuantity(Request $request, $id)
+    {
+        $request->validate([
+            'quantity' => 'required|integer|min:1'
+        ]);
+
+        $products = $request->session()->get('products', []);
+
+        if (isset($products[$id])) {
+            $products[$id] = $request->input('quantity');
+            $request->session()->put('products', $products);
+        }
+
+        return redirect()->route('cart.index')->with('success', 'Cập nhật số lượng thành công!');
+    }
+    
+    public function remove(Request $request, $id)
+    {
+        $products = $request->session()->get('products', []);
+
+        if (isset($products[$id])) {
+            unset($products[$id]);
+            $request->session()->put('products', $products);
+        }
+
+        return redirect()->route('cart.index')->with('success', 'Đã xóa sản phẩm khỏi giỏ hàng!');
+    }
+
 }

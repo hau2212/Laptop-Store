@@ -6,6 +6,7 @@
   height: 60px;
   background: #d32f2f;      /* đỏ chủ đạo */
   border-radius: 4px;
+ 
   display: flex;
   align-items: center;
   box-shadow: 0 2px 6px rgba(0,0,0,.08);

@@ -34,10 +34,17 @@
 
             <ul class="admin-menu">
                 <li><a href="{{ route('admin.dashbroad') }}">📊 Dashboard</a></li>
-                <li><a href="{{ route('admin.product.store') }}">👤 Users</a></li>
+                <li><a href="{{ route('admin.users.index') }}">👤 Users</a></li>
                 <li><a href="{{ route('admin.products') }}">🛒 Products</a></li>
-                <li><a href="{{ route('admin.product.store') }}">📦 Orders</a></li>
-                <li><a href="{{ route('admin.product.store') }}">🚪 Logout</a></li>
+               
+                <li><a href="{{ route('admin.categories.index') }}">📦 Catogries</a></li>
+                <li>
+                <form id="logout" action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="logout-btn">🚪 Logout</button>
+                </form>
+    </li>
+                 
             </ul>
         </aside>
         <!-- /sidebar -->
