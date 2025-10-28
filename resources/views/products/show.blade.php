@@ -21,7 +21,11 @@
       <section class="left_main">
         <div class="left_product">
           <img class="img_product"
+<<<<<<< HEAD
                src="{{ asset('storage/products/' . $viewData['products']->image) }}"
+=======
+               src="{{ asset('storage/' . $viewData['products']->image) }}"
+>>>>>>> origin/nguyen-main
                alt="{{ $viewData['products']->name }}">
         </div>
 
@@ -42,16 +46,24 @@
             <strong>Description:</strong> {{ $viewData['products']->description }}
           </p>
 
+<<<<<<< HEAD
           {{-- <div class="meta_inline">
             <span><strong>Stock:</strong> {{ $viewData['products']->stock }}</span>
             <span><strong>Category:</strong> {{ $viewData['products']->category }}</span>
           </div> --}}
+=======
+          <div class="meta_inline">
+            <span><strong>Stock:</strong> {{ $viewData['products']->stock }}</span>
+            <span><strong>Category:</strong> {{ $viewData['products']->category }}</span>
+          </div>
+>>>>>>> origin/nguyen-main
         </article>
       </section>
 
       <!-- ========== CỘT PHẢI: CẤU HÌNH & THÔNG TIN KHÁC (SIDEBAR) ========== -->
       <aside class="right_aside">
         <div class="card_box sticky_aside">
+<<<<<<< HEAD
           <p class="card-text">
                     <form method="POST" action="{{ route('cart.add',['id'=>$viewData['products']->getId()]) }}">
                         <div class="row">
@@ -72,6 +84,8 @@
 
 
         <div class="card_box sticky_aside">
+=======
+>>>>>>> origin/nguyen-main
           <h4 class="box_title">Cấu hình</h4>
           <ul class="spec_list">
             <li><span>CPU</span><strong>{{ $viewData['products']->cpu ?? '—' }}</strong></li>
@@ -89,11 +103,33 @@
             <li><span>Màu sắc</span><strong>{{ $viewData['products']->color ?? '—' }}</strong></li>
           </ul>
         </div>
+<<<<<<< HEAD
         
+=======
+        <div class="card_box sticky_aside">
+          <p class="card-text">
+                    <form method="POST" action="{{ route('cart.add',['id'=>$viewData['products']->getId()]) }}">
+                        <div class="row">
+                            @csrf
+                            <div class="col-auto">
+                                <div class="input-group col-auto">
+                                    <div class="input-group-text">Quantity</div>
+                                    <input type="number" min="1" max="10" class="form-control quantity-input" name="quantity" value="1">
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <button class="btn bg-primary text-white" type="submit">Add to cart</button>
+                            </div>
+                        </div>
+                    </form>
+          </p>
+        </div>
+>>>>>>> origin/nguyen-main
       </aside>
 
     </div>
     <!-- /container_product -->
+<<<<<<< HEAD
     
 <!--################################################### review #######################################################3-->
   <div class="content_product">
@@ -275,6 +311,8 @@
 
 </div>
 <!--################################################### end review #######################################################3-->
+=======
+>>>>>>> origin/nguyen-main
 
   </div>
 </div>

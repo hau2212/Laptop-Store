@@ -17,6 +17,7 @@ Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("
 Route::middleware(['auth'])->group(function () {
     Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name("cart.purchase");
     Route::get('/my-account/orders', 'App\Http\Controllers\MyAccountController@orders')->name("myaccount.orders");
+<<<<<<< HEAD
     Route::post('/my-account/{id}/update', 'App\Http\Controllers\CartController@updateQuantity')->name("cart.update");
 });
 
@@ -47,4 +48,17 @@ Route::prefix('admin/users')->name('admin.users.')->group(function () {
     Route::delete('/{id}/destroy', 'App\Http\Controllers\Admin\AdminUsersController@destroy')->name('destroy');
     Route::patch('/{id}/toggle', 'App\Http\Controllers\Admin\AdminUsersController@userStatus')->name('userStatus');
 });
+=======
+});
+
+Route::middleware(['admin'])->group(function () {
+Route::get('/admin' , 'App\Http\Controllers\Admin\AdminController@index')->name('admin.dashbroad');
+Route::get('/admin/products' , 'App\Http\Controllers\Admin\AdminController@createProducts')->name('admin.products');
+Route::post('/admin/product/store' , 'App\Http\Controllers\Admin\AdminController@store')->name('admin.product.store');
+Route::delete('/admin/product/delete/{id}' , 'App\Http\Controllers\Admin\AdminController@delete')->name('admin.product.delete');
+Route::get('/admin/product/edit/{id}', 'App\Http\Controllers\admin\AdminController@edit')->name('admin.product.edit');
+Route::put('/admin/product/update/{id}', 'App\Http\Controllers\admin\AdminController@update')->name('admin.product.update');
+});
+
+>>>>>>> origin/nguyen-main
 Auth::routes();

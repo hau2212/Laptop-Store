@@ -34,6 +34,7 @@
 
             <ul class="admin-menu">
                 <li><a href="{{ route('admin.dashbroad') }}">📊 Dashboard</a></li>
+<<<<<<< HEAD
                 <li><a href="{{ route('admin.users.index') }}">👤 Users</a></li>
                 <li><a href="{{ route('admin.products') }}">🛒 Products</a></li>
                
@@ -45,6 +46,12 @@
                 </form>
     </li>
                  
+=======
+                <li><a href="{{ route('admin.product.store') }}">👤 Users</a></li>
+                <li><a href="{{ route('admin.products') }}">🛒 Products</a></li>
+                <li><a href="{{ route('admin.product.store') }}">📦 Orders</a></li>
+                <li><a href="{{ route('admin.product.store') }}">🚪 Logout</a></li>
+>>>>>>> origin/nguyen-main
             </ul>
         </aside>
         <!-- /sidebar -->
