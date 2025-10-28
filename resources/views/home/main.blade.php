@@ -10,7 +10,7 @@
 @section('content')
 <div class="home_container">  {{-- Khung tổng của trang Home: viền đỏ, nền trắng, chừa chỗ sidebar --}}
 
-  <div class="border_full"></div>  {{-- Dải phân cách đỏ phía trên --}}
+  <div class="border_full"> he</div>  {{-- Dải phân cách đỏ phía trên --}}
 
   <div class="products_wrap">  {{-- Giới hạn bề ngang & căn giữa toàn bộ cụm sản phẩm --}}
     <div class="row_banner">   {{-- Hàng sản phẩm: flex-wrap + justify-center --}}

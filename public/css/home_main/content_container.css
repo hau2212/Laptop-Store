@@ -14,7 +14,7 @@ a{ color:inherit; text-decoration:none; }
 
 /* Chừa chỗ cho sidebar: LƯU Ý — dùng cùng biến --sidebar-w ở nav_bar.css */
 .home_container{
-  margin: 20px 12px 60px calc(var(--sidebar-w) + 24px); /* <<< quan trọng */
+  margin: 17px 12px 60px calc(var(--sidebar-w) + 24px); /* <<< quan trọng */
   padding: 16px;
   background: #fff;
   border: 1px solid #d32f2f;
@@ -22,6 +22,8 @@ a{ color:inherit; text-decoration:none; }
   color: #222;
   position: relative;
   z-index: 1; /* dưới header, trên nền */
+ 
+  
 }
 /* Thanh phân cách đỏ mảnh */
 .border_full{

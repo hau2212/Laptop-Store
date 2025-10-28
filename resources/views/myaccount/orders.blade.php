@@ -2,7 +2,9 @@
 @section('title', $viewData["title"])
 @section('subtitle', $viewData["subtitle"])
 @section('content')
+<div class="home_container">
 @forelse ($viewData["orders"] as $order)
+
 <div class="card mb-4">
     <div class="card-header">
         Order #{{ $order->getId() }}
@@ -41,5 +43,7 @@
 <div class="alert alert-danger" role="alert">
     Seems to be that you have not purchased anything in our store =(.
 </div>
+
 @endforelse
+</div>
 @endsection

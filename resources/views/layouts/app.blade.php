@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{ asset('css/home_layout/background.css') }}">
     <link rel="stylesheet" href="{{ asset('css/home_layout/footer.css') }}">
     <link rel="stylesheet" href="{{ asset('css/home_layout/header.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/home_main/content_container.css') }}">
 
     @yield('style')
 </head>
