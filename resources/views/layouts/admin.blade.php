@@ -46,6 +46,12 @@
                         <i class="bi bi-box-seam me-2"></i> Categories
                     </a>
                 </li>
+                <li class="nav-item mb-2">
+                    <a href="{{ route('admin.oders.index') }}" class="nav-link text-white d-flex align-items-center">
+                        <i class="bi bi-box-seam me-2"></i> Oders
+                    </a>
+                </li>
+
                 <li class="nav-item mt-auto">
                     <form id="logout" action="{{ route('logout') }}" method="POST">
                         @csrf
