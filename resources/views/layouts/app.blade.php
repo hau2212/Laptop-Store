@@ -175,7 +175,7 @@
     </main>
 
     <!-- ===== FOOTER ===== -->
-        <footer class=" text-black mt-auto py-4 footer">
+       <footer class="text-black py-4 footer">
             <div class="container">
                 <div class="row align-items-center">
                     <!-- Cột bên trái -->

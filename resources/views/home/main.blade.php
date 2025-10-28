@@ -10,12 +10,13 @@
 @section('content')
 <div class="home_container">  {{-- Khung tổng của trang Home: viền đỏ, nền trắng, chừa chỗ sidebar --}}
 
-  <div class="border_full"> he</div>  {{-- Dải phân cách đỏ phía trên --}}
+  <div class="border_full"></div>  {{-- Dải phân cách đỏ phía trên --}}
 
   <div class="products_wrap">  {{-- Giới hạn bề ngang & căn giữa toàn bộ cụm sản phẩm --}}
     <div class="row_banner">   {{-- Hàng sản phẩm: flex-wrap + justify-center --}}
       @foreach ($viewData['products'] as $product)
-        <div class="box_banner">   {{-- Mỗi “ô” sản phẩm: width cố định để căn giữa đẹp --}}
+        @if  ($product->discount_price)
+         <div class="box_banner">   {{-- Mỗi “ô” sản phẩm: width cố định để căn giữa đẹp --}}
           <a href="{{ route('product.show', ['id' => $product->id]) }}" class="card"> {{-- Card có thể click toàn khối --}}
             <img class="img_banner"
                  src="{{ asset('storage/products/' . $product->image) }}"     {{-- Ảnh sản phẩm (yêu cầu storage:link) --}}
@@ -41,6 +42,7 @@
             </div>
           </a>
         </div>
+      @endif
       @endforeach
     </div>
   </div>
@@ -51,16 +53,17 @@
   <div class="products_wrap">
     <div class="row_banner">
       @foreach ($viewData['products'] as $product)
-        <div class="box_banner">
-          <a href="{{ route('product.show', ['id' => $product->id]) }}" class="card bg-dark text-white"> {{-- Card nền tối --}}
+      @if  (!($product->discount_price))
+         <div class="box_banner">   {{-- Mỗi “ô” sản phẩm: width cố định để căn giữa đẹp --}}
+          <a href="{{ route('product.show', ['id' => $product->id]) }}" class="card"> {{-- Card có thể click toàn khối --}}
             <img class="img_banner"
-                 src="{{ asset('storage/products/' . $product->image) }}"
-                 alt="{{ $product->name }}">
+                 src="{{ asset('storage/products/' . $product->image) }}"     {{-- Ảnh sản phẩm (yêu cầu storage:link) --}}
+                 alt="{{ $product->name }}">                         {{-- Alt để SEO + truy cập --}}
 
-            <div class="card-img-overlay"> {{-- Overlay chữ trên ảnh khi dùng bg-dark --}}
+            <div class="card-body">  {{-- Vùng text của card --}}
               <h2 class="size_text_banner">{{ $product->name }}</h2>
 
-              {{-- Giá với điều kiện giảm giá giống khối trên --}}
+              {{-- Hiển thị giá: nếu có giảm giá thì gạch giá cũ + tô đỏ giá mới --}}
               <p class="size_text_banner">
                 @if ($product->discount_price)
                   <span style="text-decoration:line-through;opacity:.7">
@@ -77,6 +80,8 @@
             </div>
           </a>
         </div>
+      @endif
+       
       @endforeach
     </div>
   </div>
