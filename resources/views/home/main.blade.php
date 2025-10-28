@@ -60,6 +60,7 @@
                  src="{{ asset('storage/products/' . $product->image) }}"     {{-- Ảnh sản phẩm (yêu cầu storage:link) --}}
                  alt="{{ $product->name }}">                         {{-- Alt để SEO + truy cập --}}
 
+                 
             <div class="card-body">  {{-- Vùng text của card --}}
               <h2 class="size_text_banner">{{ $product->name }}</h2>
 

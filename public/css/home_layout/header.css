@@ -6,8 +6,6 @@
   height: 60px;
   background: #d32f2f;      /* đỏ chủ đạo */
   border-radius: 4px;
-  
-
   display: flex;
   align-items: center;
   box-shadow: 0 2px 6px rgba(0,0,0,.08);
@@ -19,6 +17,7 @@
   width: auto;
   object-fit: contain;
 }
+
 
 /* Link trong navbar */
 .header .nav-link,
@@ -38,6 +37,7 @@
   color:#d32f2f !important;
   border-radius:4px;
 }
+
 
 /* Toggler cho mobile */
 .header .navbar-toggler{ border-color:rgba(255,255,255,.35); }

@@ -23,7 +23,9 @@ a{ color:inherit; text-decoration:none; }
   position: relative;
   z-index: 1; /* dưới header, trên nền */
  
-  
+}
+.no-sidebar .home_container{
+  margin: 17px 12px 60px 12px; /* không chừa sidebar nữa */
 }
 /* Thanh phân cách đỏ mảnh */
 .border_full{
