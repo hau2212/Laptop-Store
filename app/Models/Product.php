@@ -10,16 +10,26 @@ class Product extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
-        'slug',
-        'description',
-        'price',
-        'discount_price',
-        'stock',
-        'category_id',
-        'image',
-        'staus'
-    ];
+    'name',
+    'slug',
+    'description',
+    'price',
+    'discount_price',
+    'stock',
+    'category_id',
+    'status',
+    'image',
+    'cpu',
+    'gpu',
+    'ram',
+    'storage',
+    'display',
+    'weight',
+    'warranty',
+    'origin',
+    'color',
+];
+
     public static function sumPricesByQuantities($products, $productsInSession)
     {
         $total = 0;

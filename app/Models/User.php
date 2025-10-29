@@ -10,6 +10,8 @@ use App\Models\Order;
 
 class User extends Authenticatable
 {
+
+
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
@@ -102,4 +104,5 @@ class User extends Authenticatable
     public function setOrders($orders){
         $this->orders = $orders;
     }
+    
 }

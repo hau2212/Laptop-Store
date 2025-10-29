@@ -3,18 +3,13 @@
   --wrap-max: 1200px;
   --sidebar-w: 220px;    /* phải trùng với nav_bar.css */
 }
-
-/* Khối footer */
-.footer{
+.footer {
   position: relative;
-  z-index: 1200;                       /* cao hơn sidebar */
+  z-index: 1200;
   background: var(--red);
   color: #fff;
   border-radius: 4px;
-
-  /* thẳng hàng với content: chừa sidebar bên trái */
-  margin: 10px 12px 10px calc(var(--sidebar-w) + 24px);
-
+  margin: 24px 0 0 0; /* cách trên 24px, không chừa trống bên trái */
   padding: 24px 16px;
 }
 

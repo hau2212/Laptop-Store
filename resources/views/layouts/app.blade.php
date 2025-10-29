@@ -20,10 +20,22 @@
     <link rel="stylesheet" href="{{ asset('css/home_layout/background.css') }}">
     <link rel="stylesheet" href="{{ asset('css/home_layout/footer.css') }}">
     <link rel="stylesheet" href="{{ asset('css/home_layout/header.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/home_main/content_container.css') }}">
 
     @yield('style')
 </head>
-<body class="d-flex flex-column min-vh-100 background">
+    @php
+        $hideSidebar = request()->routeIs(
+            'home.blog',        // Blog
+            'home.about',       // About
+            'home.contact',     // Contact
+            'cart.index',       // Cart
+            'myaccount.orders', // My Orders
+            'login',            // Login
+            'register'          // Register
+        );
+    @endphp
+<body class="d-flex flex-column min-vh-100 background {{ $hideSidebar ? 'no-sidebar' : '' }}">
 
     <!-- ===== HEADER / NAVBAR ===== -->
     <nav class="navbar navbar-expand-lg  sticky-top shadow-sm custom_navbar header">
@@ -31,125 +43,107 @@
             <a class="navbar-brand d-flex align-items-center" href="{{ Route('home.main') }}">
                 <img src="{{ asset('img/logo.png') }}" alt="Logo" height="55" class="me-2">
             </a>
-
-                <div> 
-                    <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
-                        <datalist id="datalistOptions">
-                        <option value="WorkStation">
-                        <option value="office">
-                        <option value="gaming">
-                        <option value="computer">
-                        
-                    </datalist>        
+            
+                <div class="flex-grow-1 mx-3">
+                <input class="form-control w-100" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+                <datalist id="datalistOptions">
+                    <option value="WorkStation">
+                    <option value="Office">
+                    <option value="Gaming">
+                    <option value="Computer">
+                </datalist>
                 </div>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
                 aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            
+            <div class="collapse navbar-collapse d-flex" id="mainNav">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            
+                <!-- Public links -->
+                <li class="nav-item">
+                <a class="nav-link hover_link {{ request()->routeIs('home') ? 'active' : '' }}"
+                    href="{{ route('home.main') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link hover_link {{ request()->is('blog*') ? 'active' : '' }}"
+                    href="{{ route('home.blog') }}">Blog</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link hover_link {{ request()->is('about*') ? 'active' : '' }}"
+                    href="{{ route('home.about') }}">About</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link hover_link {{ request()->is('contact*') ? 'active' : '' }}"
+                    href="{{ route('home.contact') }}">Contact</a>
+                </li>
 
-            <div class="collapse navbar-collapse" id="mainNav">
-               <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link hover_link {{ request()->routeIs('home') ? 'active' : '' }}"
-                        href="{{ route('home.main') }}">Home</a>
-                    </li>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link hover_link {{ request()->is('blog*') ? 'active' : '' }}"
-                        href="{{ route('home.about') }}">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link hover_link {{ request()->is('contact*') ? 'active' : '' }}"
-                        href="{{ route('home.contact') }}">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link hover_link {{ request()->is('contact*') ? 'active' : '' }}"
-                        href="{{ route('cart.index') }}">Cart</a>
-                    </li>
-                    </ul>
-
-                    <ul class="navbar-nav ms-lg-3">
-                    <li class="nav-item">
-                    @guest
-                        <a class="nav-link active" href="{{ route('login') }}">Login</a>
-                        <a class="nav-link active" href="{{ route('register') }}">Register</a>
-                        @else
-                        <a class="nav-link active" href="{{ route('myaccount.orders') }}">My Orders</a>
-                        <form id="logout" action="{{ route('logout') }}" method="POST">
-                        <a role="button" class="nav-link active"
-                        onclick="document.getElementById('logout').submit();">Logout</a>
+                @guest
+                <!-- Guest only -->
+                {{-- Login --}}
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('login') ? 'active' : '' }}"
+                    href="{{ route('login') }}" title="Login">
+                        <i class="fa-solid fa-right-to-bracket"></i> {{-- Icon đăng nhập --}}
+                    </a>
+                </li>
+                @else
+                <!-- Authenticated only -->
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('myaccount.orders') ? 'active' : '' }}"
+                    href="{{ route('myaccount.orders') }}">My Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link hover_link {{ request()->routeIs('cart.index') ? 'active' : '' }}"
+                    href="{{ route('cart.index') }}">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                </li>
+                {{-- Logout --}}
+                <li class="nav-item">
+                    <form id="logout" action="{{ route('logout') }}" method="POST" class="d-inline">
                         @csrf
-                        </form>
-                    @endguest
-                    </li>
-                </ul>
+                        <a role="button" class="nav-link" onclick="document.getElementById('logout').submit();" title="Logout">
+                            <i class="fa-solid fa-right-from-bracket"></i> {{-- Icon đăng xuất --}}
+                        </a>
+                    </form>
+                </li>
+                @endguest
+            </ul>
             </div>
+            
         </div>
     </nav>
 
     <!-- ===== MAIN CONTENT ===== -->
      <!-- ===== MAIN CONTENT WITH SIDEBAR ===== -->
      @yield('sidebar')
-    <main class="flex-grow-1 py-4">
+        <main class="flex-grow-1 py-4">
         <div class="container-fluid">
             <div class="row">
-                <!-- Sidebar -->
-                    <!-- Sidebar cố định bên trái, full chiều cao -->
-                        <nav id="sidebarMenu" 
-                            class="col-md-3 col-lg-2 d-md-block  sidebar p-3 border-end">
-                       
-                            <!-- Tiêu đề menu -->
-                            <h5 class="text-dark mb-3"><i class="fa-solid fa-bars me-2"></i>Menu</h5>
 
-                            <!-- Các mục menu -->
-                            <ul class="nav flex-column">
-                                
-                                <li class="nav-item dropdown">
-                                    <a href="#" class="nav-link  dropdown-toggle" data-bs-toggle="dropdown">
-                                        Laptop
-                                    </a>
-                                    <ul class="dropdown-menu submenu">
-                                        <li><a class="dropdown-item" href="#">User Roles</a></li>
-                                        <li><a class="dropdown-item" href="#">Access Logs</a></li>
-                                        <li><a class="dropdown-item" href="#">Firewall Rules</a></li>
-                                    </ul>
-                                </li>
-                                
-                                <li class="nav-item dropdown">
-                                    <a href="#" class="nav-link  dropdown-toggle" data-bs-toggle="dropdown">
-                                        Computer
-                                    </a>
-                                    <ul class="dropdown-menu submenu">
-                                        <li><a class="dropdown-item" href="#">User Roles</a></li>
-                                        <li><a class="dropdown-item" href="#">Access Logs</a></li>
-                                        <li><a class="dropdown-item" href="#">Firewall Rules</a></li>
-                                    </ul>
-                                </li>
+            {{-- Sidebar: chỉ hiển thị khi KHÔNG thuộc các trang ẩn --}}
+            @unless($hideSidebar)
+                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar p-3 border-end">
+                {{-- ... sidebar của bạn ... --}}
+                @include('partials.sidebar') {{-- hoặc dán nguyên sidebar hiện có --}}
+                </nav>
+            @endunless
 
-
-                                <li class="nav-item mb-2">
-                                    <a class="nav-link text-dark" href="#"><i class="fa-solid fa-network-wired me-2"></i> Accessories</a>
-                                </li>
-                                <li class="nav-item mb-2">
-                                    <a class="nav-link text-dark" href="#"><i class="fa-solid fa-bug me-2"></i> Stick</a>
-                                </li>
-                                <li class="nav-item mb-2">
-                                    <a class="nav-link text-dark" href="#"><i class="fa-solid fa-gear me-2"></i> Review</a>
-                                </li>
-                            </ul>
-                        </nav>
-
-                <!-- Nội dung phải dịch sang phải bằng padding hoặc margin-left -->
-                <div class="col-md-9 col-lg-10 px-4" >
-                    @yield('content')
-                </div>
+            {{-- Cột nội dung: full-width nếu ẩn sidebar --}}
+            {{-- <div class="{{ $hideSidebar ? 'col-12 px-4' : 'col-md-9 col-lg-10 px-4' }}">
+                @yield('content')
+            </div> --}}
+            <div class='col-md-5col-lg-10 px-4'>
+                @yield('content')
             </div>
         </div>
-    </main>
+        </main>
 
     <!-- ===== FOOTER ===== -->
-        <footer class=" text-black mt-auto py-4 footer">
+       <footer class="text-black py-4 footer">
             <div class="container">
                 <div class="row align-items-center">
                     <!-- Cột bên trái -->
@@ -160,7 +154,7 @@
                             text-center : canh giữa toàn bộ nội dung
     
                         -->
-                        <img src="{{ asset('img/laptop.png') }}" alt="Logo" height="40" class="mb-2 d-block mx-md-0 mx-auto">
+                        <img src="{{ asset('img/logo.png') }}" alt="Logo" height="40" width="40" class="mb-2 d-block mx-md-0 mx-auto">
                         <h3 class="generic"> LaptopShop</h3>
                         <p class="generic">Your one-stop shop for all laptop needs.</p>
                         <p class="mb-0">

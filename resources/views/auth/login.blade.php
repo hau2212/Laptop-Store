@@ -63,6 +63,9 @@
                                     <a class="btn bg-primary text-white" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
+                                    <a class="btn bg-primary text-white" href="{{ route('register') }}">
+                                        {{ __('Register') }}
+                                    </a>
                                 @endif
                             </div>
                         </div>
