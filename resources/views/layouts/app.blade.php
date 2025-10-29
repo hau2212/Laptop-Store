@@ -154,7 +154,7 @@
                             text-center : canh giữa toàn bộ nội dung
     
                         -->
-                        <img src="{{ asset('img/logo.png') }}" alt="Logo" height="40" class="mb-2 d-block mx-md-0 mx-auto">
+                        <img src="{{ asset('img/logo.png') }}" alt="Logo" height="40" width="40" class="mb-2 d-block mx-md-0 mx-auto">
                         <h3 class="generic"> LaptopShop</h3>
                         <p class="generic">Your one-stop shop for all laptop needs.</p>
                         <p class="mb-0">

@@ -52,7 +52,7 @@ class ProductSeeder extends Seeder
 
                 // Random ảnh chính từ 1.png -> 10.png
                 $mainImageNumber = rand(1, 10);
-                $image = "products/{$mainImageNumber}.png";
+                $image = "{$mainImageNumber}.png";
 
                 // Tạo gallery gồm 10 ảnh từ 1.png -> 10.png
                 $gallery = [];

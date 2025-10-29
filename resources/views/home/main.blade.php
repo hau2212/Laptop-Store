@@ -53,9 +53,13 @@
 <div class="products_wrap">
   
   @foreach ($viewData['categories'] as $category)
+    <h4 id="category-{{ $category->id }}" class="text-primary mt-4 mb-3"></h4>
+
    <div class="border_full"></div>
     {{-- Tiêu đề danh mục --}}
     <h4 class="text-primary mt-4 mb-3">🏷 {{ $category->name }}</h4>
+
+   {{-- Thêm id cho anchor link --}}
 
     <div class="row_banner">
       @forelse ($category->products as $product)
