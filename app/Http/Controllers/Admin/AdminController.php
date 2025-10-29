@@ -47,18 +47,30 @@ class AdminController extends Controller
    public function store(Request $request){
     // 1 . Validate dữ liệu đầu vào
     $request->validate([
-            'name'             => 'required|max:225',
-            'description'      => 'required',
-            'price'            => 'required|numeric|gt:0',
-            'discounted_price' => 'nullable|numeric|lt:price',
-            'stock'            => 'nullable|integer|min:0',
-            'category_id'      => 'nullable|exists:categories,id',
-            'status'           => 'nullable|in:active,inactive',
-            'image'            => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-        ]);
+        'name'             => 'required|max:225',
+        'description'      => 'required',
+        'price'            => 'required|numeric|gt:0',
+        'discounted_price' => 'nullable|numeric|lt:price',
+        'stock'            => 'nullable|integer|min:0',
+        'category_id'      => 'nullable|exists:categories,id',
+        'status'           => 'nullable|in:active,inactive',
+        'image'            => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+
+        // thêm validate cho cấu hình
+        'cpu'       => 'nullable|string|max:255',
+        'gpu'       => 'nullable|string|max:255',
+        'ram'       => 'nullable|string|max:255',
+        'storage'   => 'nullable|string|max:255',
+        'display'   => 'nullable|string|max:255',
+        'weight'    => 'nullable|string|max:255',
+        'warranty'  => 'nullable|string|max:255',
+        'origin'    => 'nullable|string|max:255',
+        'color'     => 'nullable|string|max:255',
+    ]);
+
      $baseSlug = Str::slug($request->input('name'));
     // 2️ . Tạo sản phẩm mới, trước mắt chưa có hình
-     $product = Product::create([
+    $product = Product::create([
             'name'             => $request->input('name'),
             'slug'             => $baseSlug,
             'description'      => $request->input('description'),
@@ -67,9 +79,19 @@ class AdminController extends Controller
             'stock'            => $request->input('stock', 0),
             'category_id'      => $request->input('category_id', null),
             'status'           => $request->input('status', 'active'),
-            'image'            => null, // xử lý sau nếu có hình
-        ]);
+            'image'            => null,
 
+            // các thông số cấu hình
+            'cpu'       => $request->input('cpu', null),
+            'gpu'       => $request->input('gpu', null),
+            'ram'       => $request->input('ram', null),
+            'storage'   => $request->input('storage', null),
+            'display'   => $request->input('display', null),
+            'weight'    => $request->input('weight', null),
+            'warranty'  => $request->input('warranty', '12 tháng'),
+            'origin'    => $request->input('origin', null),
+            'color'     => $request->input('color', null),
+        ]);
     // 3️ . Nếu có hình thì xử lý upload
     if ($request->hasFile('image')) {
             $imageName = $product->slug . '.' . $request->file('image')->extension();
@@ -108,21 +130,44 @@ class AdminController extends Controller
             'category_id'      => 'nullable|exists:categories,id',
             'status'           => 'nullable|in:active,inactive',
             'image'            => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+
+            // thêm validate cho cấu hình
+            'cpu'       => 'nullable|string|max:255',
+            'gpu'       => 'nullable|string|max:255',
+            'ram'       => 'nullable|string|max:255',
+            'storage'   => 'nullable|string|max:255',
+            'display'   => 'nullable|string|max:255',
+            'weight'    => 'nullable|string|max:255',
+            'warranty'  => 'nullable|string|max:255',
+            'origin'    => 'nullable|string|max:255',
+            'color'     => 'nullable|string|max:255',
         ]);
+
 
         $baseSlug = Str::slug($request->input('name'));
 
         // Cập nhật dữ liệu
         $product->update([
-            'name'             => $request->input('name'),
-            'slug'             => $baseSlug,
-            'description'      => $request->input('description'),
-            'price'            => $request->input('price'),
-            'discounted_price' => $request->input('discounted_price', null),
-            'stock'            => $request->input('stock', 0),
-            'category_id'      => $request->input('category_id', null),
-            'status'           => $request->input('status', 'active'),
-        ]);
+    'name'             => $request->input('name'),
+    'slug'             => $baseSlug,
+    'description'      => $request->input('description'),
+    'price'            => $request->input('price'),
+    'discounted_price' => $request->input('discounted_price', null),
+    'stock'            => $request->input('stock', 0),
+    'category_id'      => $request->input('category_id', null),
+    'status'           => $request->input('status', 'active'),
+
+    // các thông số cấu hình
+    'cpu'       => $request->input('cpu', null),
+    'gpu'       => $request->input('gpu', null),
+    'ram'       => $request->input('ram', null),
+    'storage'   => $request->input('storage', null),
+    'display'   => $request->input('display', null),
+    'weight'    => $request->input('weight', null),
+    'warranty'  => $request->input('warranty', '12 tháng'),
+    'origin'    => $request->input('origin', null),
+    'color'     => $request->input('color', null),
+]);
 
         // Cập nhật hình ảnh nếu có upload mới
         if ($request->hasFile('image')) {

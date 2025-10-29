@@ -39,6 +39,9 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/admin/categories/{category}/editCatogy', 'App\Http\Controllers\Admin\AdminCatogriesController@edit')->name('admin.categories.edit');
     Route::put('/admin/categories/{category}', 'App\Http\Controllers\Admin\AdminCatogriesController@update')->name('admin.categories.update');
     Route::delete('/admin/categories/{category}', 'App\Http\Controllers\Admin\AdminCatogriesController@destroy')->name('admin.categories.destroy');
+
+
+
 });
 
 Route::prefix('admin/users')->name('admin.users.')->group(function () {
@@ -49,5 +52,15 @@ Route::prefix('admin/users')->name('admin.users.')->group(function () {
     Route::put('/{id}', 'App\Http\Controllers\Admin\AdminUsersController@update')->name('update');
     Route::delete('/{id}/destroy', 'App\Http\Controllers\Admin\AdminUsersController@destroy')->name('destroy');
     Route::patch('/{id}/toggle', 'App\Http\Controllers\Admin\AdminUsersController@userStatus')->name('userStatus');
+
+
+});
+Route::prefix('admin/oders')->name('admin.oders.')->group(function() {
+    Route::get('/', 'App\Http\Controllers\Admin\AdminOderController@index')->name('index');
+    Route::get('/show/{id}', 'App\Http\Controllers\Admin\AdminOderController@show')->name('show');
+    Route::get('/edit/{id}', 'App\Http\Controllers\Admin\AdminOderController@edit')->name('edit');
+    Route::put('/update/{id}', 'App\Http\Controllers\Admin\AdminOderController@update')->name('update');
+    Route::delete('/destroy', 'App\Http\Controllers\Admin\AdminOderController@destroy')->name('destroy');
+
 });
 Auth::routes();

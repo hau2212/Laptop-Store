@@ -1,0 +1,57 @@
+copyright {
+    background-color: #1a252f;
+}
+
+.fixed {
+    -ms-flex: 0 0 250px;
+    flex: 0 0 250px;
+}
+
+.content-grey {
+    background-color: #f8f9fc;
+}
+
+hr {
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
+}
+
+.img-logo-full{
+  width: 40%;      /* phủ full bề ngang cha */
+  height: auto;     /* giữ đúng tỉ lệ gốc, không méo */
+  display: block;
+  border-radius: .75rem; /* bo góc chữ nhật */
+}
+/* chữ "Admin" */
+.profile-font {
+    color: #858796 !important;
+    font-size: 80%;
+    font-weight: 400;
+}
+
+.card-header {
+    background-color: #f8f9fc;
+    border-bottom: 1px solid #e3e6f0;
+}
+
+/* 🟡 Tuỳ chọn: tự giảm kích thước logo khi màn hình nhỏ */
+@media (max-width: 576px) {
+    .img-profile {
+        height: 3rem;
+        width: 3rem;
+    }
+}
+/* Logo nhỏ nằm góc phải header */
+.img-logo-small {
+  width: 120px;       /* kích thước nhỏ gọn */
+  height: auto;      /* giữ tỉ lệ ảnh */
+  border-radius: 10px;  /* bo góc nhẹ */
+  object-fit: contain;  /* hiển thị toàn bộ logo, không bị cắt */
+}
+
+/* Khi màn hình nhỏ hơn (mobile) -> tự thu nhỏ logo */
+@media (max-width: 576px) {
+  .img-logo-small {
+    width: 45px;
+  }
+}

@@ -1,25 +1,29 @@
+@php
+use App\Models\Category;
+
+$categories = Category::all(); // Lấy tất cả category
+@endphp
 {{-- resources/views/partials/sidebar.blade.php --}}
 <h5 class="text-dark mb-3"><i class="fa-solid fa-bars me-2"></i>Menu</h5>
 
 <ul class="nav flex-column">
-
-  <li class="nav-item dropdown">
+<li class="nav-item dropdown">
     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
       Laptop
     </a>
+    
     <ul class="dropdown-menu submenu">
-      <li><a class="dropdown-item" href="#">MSI</a></li>
-      <li><a class="dropdown-item" href="#">ACER</a></li>
-      <li><a class="dropdown-item" href="#">ASUS</a></li>
-      <li><a class="dropdown-item" href="#">DELL</a></li>
-      <li><a class="dropdown-item" href="#">HP</a></li>
-      <li><a class="dropdown-item" href="#">LENOVO</a></li>
-      <li><a class="dropdown-item" href="#">MACBOOK</a></li>
-      <li><a class="dropdown-item" href="#">LG</a></li>
-      <li><a class="dropdown-item" href="#">GIGABYTE</a></li>
-      <li><a class="dropdown-item" href="#">MASSTEL</a></li>
+        @foreach ($viewData['categories'] as $category)
+            
+                <li>
+                    <a class="dropdown-item" href="#category-{{ $category->id }}">
+                        {{ $category->name }}
+                    </a>
+                </li>
+          
+        @endforeach
     </ul>
-  </li>
+</li>
 
   <li class="nav-item dropdown">
     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">

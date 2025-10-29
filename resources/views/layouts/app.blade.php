@@ -43,16 +43,15 @@
             <a class="navbar-brand d-flex align-items-center" href="{{ Route('home.main') }}">
                 <img src="{{ asset('img/logo.png') }}" alt="Logo" height="55" class="me-2">
             </a>
-
-                <div> 
-                    <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
-                        <datalist id="datalistOptions">
-                        <option value="WorkStation">
-                        <option value="office">
-                        <option value="gaming">
-                        <option value="computer">
-                        
-                    </datalist>        
+            
+                <div class="flex-grow-1 mx-3">
+                <input class="form-control w-100" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+                <datalist id="datalistOptions">
+                    <option value="WorkStation">
+                    <option value="Office">
+                    <option value="Gaming">
+                    <option value="Computer">
+                </datalist>
                 </div>
 
                 
@@ -60,10 +59,10 @@
                 aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
+            
             <div class="collapse navbar-collapse d-flex" id="mainNav">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-
+            
                 <!-- Public links -->
                 <li class="nav-item">
                 <a class="nav-link hover_link {{ request()->routeIs('home') ? 'active' : '' }}"
@@ -115,7 +114,7 @@
                 @endguest
             </ul>
             </div>
-
+            
         </div>
     </nav>
 
@@ -156,7 +155,7 @@
                             text-center : canh giữa toàn bộ nội dung
     
                         -->
-                        <img src="{{ asset('img/logo.png') }}" alt="Logo" height="40" class="mb-2 d-block mx-md-0 mx-auto">
+                        <img src="{{ asset('img/logo.png') }}" alt="Logo" height="40" width="40" class="mb-2 d-block mx-md-0 mx-auto">
                         <h3 class="generic"> LaptopShop</h3>
                         <p class="generic">Your one-stop shop for all laptop needs.</p>
                         <p class="mb-0">
