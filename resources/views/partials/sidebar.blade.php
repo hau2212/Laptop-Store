@@ -13,7 +13,7 @@ $categories = Category::all(); // Lấy tất cả category
     </a>
     
     <ul class="dropdown-menu submenu">
-        @foreach ($viewData['categories'] as $category)
+        @foreach ($categories as $category)
             
                 <li>
                     <a class="dropdown-item" href="#category-{{ $category->id }}">
