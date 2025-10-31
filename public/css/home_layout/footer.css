@@ -18,6 +18,14 @@
   max-width: var(--wrap-max);
 }
 
+.footer-inner {
+  background: #fff;            /* màu nền trắng bao quanh nội dung */
+  color: #000;                 /* chữ bên trong đổi sang đen cho dễ đọc */
+  border-radius: 8px;          /* bo góc nhẹ nếu muốn */
+  padding: 24px;               /* tạo khoảng cách bên trong khung trắng */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15); /* hiệu ứng nổi nhẹ */
+}
+
 /* Logo TO */
 .footer .footer-logo{
   display: block;
