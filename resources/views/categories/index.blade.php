@@ -16,7 +16,7 @@
   <h2 class="text-center mt-4 mb-3 text-primary">
     🏷 {{ $viewData['subtitle'] }}
   </h2>
-
+              
   {{-- Vùng sản phẩm --}}
   <div class="products_wrap">
     <div class="row_banner">
