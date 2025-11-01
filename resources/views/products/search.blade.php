@@ -11,7 +11,7 @@
 <div class="home_container">
   {{-- Dải đỏ phía trên --}}
   <div class="border_full"></div>
-  
+
   {{-- Vùng sản phẩm --}}
   <div class="products_wrap">
     <div class="row_banner">
