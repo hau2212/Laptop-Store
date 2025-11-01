@@ -9,13 +9,32 @@ use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
-    public function purchase(Request $request) {
+    public function purchase(Request $request)
+    {
         $productsInSession = $request->session()->get("products");
         if ($productsInSession) {
+
+            // ✅ Validate thông tin khách hàng
+            $validated = $request->validate([
+                'gender' => 'required|string',
+                'fullname' => 'required|string|max:255',
+                'phone' => 'required|string|max:20',
+                'address' => 'required|string|max:255',
+                'note' => 'nullable|string|max:500',
+            ]);
+
             $userId = Auth::user()->getId();
             $order = new Order();
             $order->setUserId($userId);
             $order->setTotal(0);
+
+            // ✅ Gán thêm thông tin khách hàng (bạn cần thêm các cột này trong DB)
+            $order->gender = $validated['gender'];
+            $order->fullname = $validated['fullname'];
+            $order->phone = $validated['phone'];
+            $order->address = $validated['address'];
+            $order->note = $validated['note'] ?? null;
+
             $order->save();
 
             $total = 0;
@@ -43,7 +62,7 @@ class CartController extends Controller
         $viewData["title"] = "Purchase - Online Store";
         $viewData["subtitle"] = "Purchase Status";
         $viewData["order"] = $order;
-        return view('cart.purchase')->with("viewData", $viewData);
+        return redirect()->route('cart.index');
         } else {
             return redirect()->route('cart.index');
         }
@@ -58,7 +77,7 @@ class CartController extends Controller
             $total = Product::sumPricesByQuantities($productsInCart, $productsInSession);
         }
         $viewData = [];
-        $viewData["title"] = "Cart - Online Store";
+        $viewData["title"] = "Cart - Laptop Store";
         $viewData["subtitle"] = "Shopping Cart";
         $viewData["total"] = $total;
         $viewData["products"] = $productsInCart;
@@ -107,4 +126,15 @@ class CartController extends Controller
         return redirect()->route('cart.index')->with('success', 'Đã xóa sản phẩm khỏi giỏ hàng!');
     }
 
+    public function showPurchase()
+    {
+        $productsInSession = session()->get("products");
+        $products = Product::findMany(array_keys($productsInSession ?? []));
+        $viewData = [];
+        $viewData["title"] = "Thanh toán đơn hàng";
+        $viewData["subtitle"] = "Nhập thông tin khách hàng";
+        $viewData["products"] = $products;
+        $viewData["productsInSession"] = $productsInSession;
+        return view('cart.purchase')->with("viewData", $viewData);
+    }
 }

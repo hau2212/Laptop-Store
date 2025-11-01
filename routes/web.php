@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\ProductsController;
 use App\Http\Middleware\AdminAuthMiddleware;
 
 Route::get('/' , 'App\Http\Controllers\Home\HomeController@index')->name('home.main');
@@ -16,9 +17,11 @@ Route::get('/cart/delete', 'App\Http\Controllers\CartController@delete')->name("
 Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add");
 
 Route::get('/categories/{id}', 'App\Http\Controllers\CategoriesController@index')->name("categories.index");
+Route::get('/search', 'App\Http\Controllers\Home\ProductsController@search')->name("products.search");
     
 Route::middleware(['auth'])->group(function () {
-    Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name("cart.purchase");
+    Route::get('/cart/purchase', 'App\Http\Controllers\CartController@showPurchase')->name("cart.purchase");
+    Route::post('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name("cart.purchase");
     Route::get('/my-account/orders', 'App\Http\Controllers\MyAccountController@orders')->name("myaccount.orders");
     Route::post('/my-account/{id}/update', 'App\Http\Controllers\CartController@updateQuantity')->name("cart.update");
     Route::post('/my-account/{id}/delete', 'App\Http\Controllers\CartController@remove')->name("cart.remove");

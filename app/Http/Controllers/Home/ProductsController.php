@@ -23,4 +23,19 @@ class ProductsController extends Controller
         return view('products.show') ->with("viewData", $viewData);
         
     }
-}
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $viewData= [];
+
+
+        // Tìm sản phẩm có tên chứa từ khóa (không phân biệt hoa thường)
+        $products = \App\Models\Product::where('name', 'LIKE', "%{$query}%")->get();
+        $viewData['products'] = $products;
+        $viewData['title'] = "Search Results";
+        
+
+        // Trả về view kết quả (ví dụ: search.blade.php)
+        return view('products.search') ->with("viewData", $viewData);
+    }
+}   

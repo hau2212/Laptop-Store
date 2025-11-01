@@ -11,17 +11,15 @@ use App\Models\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class CategoriesController extends Controller
+class SearchController extends Controller
 {
     public function index($id)
     {
-    // Lấy category và tất cả sản phẩm liên kết
-    $category = Category::with('products')->findOrFail($id);
+    $product_searched = Product::with('products')->findOrFail($id);
 
     $viewData = [];
-    $viewData["title"] = "Danh mục: " . $category->name;
-    $viewData["products"] = $category->products;
+    $viewData["products"] = $product_searched->products;
 
-    return view('categories.index')->with("viewData", $viewData);
+    return view('search.index')->with("viewData", $viewData);
     }
 }
