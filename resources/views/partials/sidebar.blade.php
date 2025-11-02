@@ -25,8 +25,6 @@ $categories = Category::all(); // Lấy tất cả category
     </ul>
 </li>
 
-
-
   <li class="nav-item mb-2">
     <a class="nav-link text-dark" href="#"><i class="fa-solid fa-bug me-2"></i> Thông tin</a>
   </li>
