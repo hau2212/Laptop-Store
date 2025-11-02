@@ -67,6 +67,8 @@
                                 <td>${{ number_format($itemTotal, 2) }}</td>
                             </tr>
                         @endforeach
+
+                        
                     </tbody>
                     <tfoot>
                         <tr class="table-secondary">
