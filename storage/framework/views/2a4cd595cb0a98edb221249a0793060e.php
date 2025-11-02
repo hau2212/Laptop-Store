@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('style'); ?>
     <link rel='stylesheet' href="<?php echo e(asset('css/home_main/content_container.css')); ?>">
 <?php $__env->stopSection(); ?>

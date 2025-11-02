@@ -85,7 +85,7 @@
                 <!-- Guest only -->
                 
                 <li class="nav-item">
-                    <a class="nav-link <?php echo e(request()->routeIs('login') ? 'active' : ''); ?>"
+                    <a class="nav-link hover_link <?php echo e(request()->is('login') ? 'active' : ''); ?>"
                     href="<?php echo e(route('login')); ?>" title="Login">
                         <i class="fa-solid fa-right-to-bracket"></i> 
                     </a>
@@ -93,8 +93,8 @@
                 <?php else: ?>
                 <!-- Authenticated only -->
                 <li class="nav-item">
-                    <a class="nav-link <?php echo e(request()->routeIs('myaccount.orders') ? 'active' : ''); ?>"
-                    href="<?php echo e(route('myaccount.orders')); ?>">My Orders</a>
+                <a class="nav-link hover_link <?php echo e(request()->is('order*') ? 'active' : ''); ?>"
+                    href="<?php echo e(route('myaccount.orders')); ?>">My Order</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link hover_link <?php echo e(request()->routeIs('cart.index') ? 'active' : ''); ?>"
@@ -106,7 +106,7 @@
                 <li class="nav-item">
                     <form id="logout" action="<?php echo e(route('logout')); ?>" method="POST" class="d-inline">
                         <?php echo csrf_field(); ?>
-                        <a role="button" class="nav-link" onclick="document.getElementById('logout').submit();" title="Logout">
+                        <a role="button" class="nav-link hover_link" onclick="document.getElementById('logout').submit();" title="Logout">
                             <i class="fa-solid fa-right-from-bracket"></i> 
                         </a>
                     </form>
@@ -144,38 +144,40 @@
     <!-- ===== FOOTER ===== -->
        <footer class="text-black py-4 footer">
             <div class="container">
-                <div class="row align-items-center">
-                    <!-- Cột bên trái -->
-                    <div class="col-md-6 text-md-start text-center ">
-                        <!-- 
-                            col-md-6 : chia deu 50% 
-                            text-md-start : canh chữ về bên trái (start = left). 
-                            text-center : canh giữa toàn bộ nội dung
-    
-                        -->
-                        <img src="<?php echo e(asset('img/logo.png')); ?>" alt="Logo" height="40" width="40" class="mb-2 d-block mx-md-0 mx-auto">
-                        <h3 class="generic"> LaptopShop</h3>
-                        <p class="generic">Your one-stop shop for all laptop needs.</p>
-                        <p class="mb-0">
-                            <?php echo $__env->yieldContent('footer', '© 2024 My Website. All rights reserved.'); ?>
-                        </p>
+                 <div class="footer-inner">
+                    <div class="row align-items-center">
+                        <!-- Cột bên trái -->
+                        <div class="col-md-6 text-md-start text-center ">
+                            <!-- 
+                                col-md-6 : chia deu 50% 
+                                text-md-start : canh chữ về bên trái (start = left). 
+                                text-center : canh giữa toàn bộ nội dung
+        
+                            -->
+                            <img src="<?php echo e(asset('img/logo.png')); ?>" alt="Logo" height="40" width="40" class="mb-2 d-block mx-md-0 mx-auto">
+                            <h3 class="generic"> LaptopShop</h3>
+                            <p class="generic">Your one-stop shop for all laptop needs.</p>
+                            <p class="mb-0">
+                                <?php echo $__env->yieldContent('footer', '© 2024 My Website. All rights reserved.'); ?>
+                            </p>
 
-                    </div>
+                        </div>
 
-                    <!-- Cột bên phải -->
-                    <div class="col-md-6 text-md-end text-center">
-                        <!-- 
-                            col-md-6 : chia deu 50% 
-                            text-md-start : canh chữ về bên trái (start = left). 
-                            text-center : canh giữa toàn bộ nội dung
-    
-                        -->
-                        <h5>Contact Us</h5>
-                        <p class="mb-1">Email: <a href="mailto:info@mywebsite.com" class="text-warning text-decoration-none">info@mywebsite.com</a></p>
-                        <div class="mt-2">
-                            <a href="#" class="text-white me-3"><i class="fa-brands fa-facebook"></i></a>
-                            <a href="#" class="text-white me-3"><i class="fa-brands fa-twitter"></i></a>
-                            <a href="#" class="text-white"><i class="fa-brands fa-linkedin"></i></a>
+                        <!-- Cột bên phải -->
+                        <div class="col-md-6 text-md-end text-center">
+                            <!-- 
+                                col-md-6 : chia deu 50% 
+                                text-md-start : canh chữ về bên trái (start = left). 
+                                text-center : canh giữa toàn bộ nội dung
+        
+                            -->
+                            <h5>Contact Us</h5>
+                            <p class="mb-1">Email: <a href="mailto:info@mywebsite.com" class="text-warning text-decoration-none" style="color: #b71c1c; font-weight: bold; text-decoration: none;">info@mywebsite.com</a></p>
+                            <div class="mt-2">
+                                <a href="#" class="text-white me-3"><i class="fa-brands fa-facebook"></i></a>
+                                <a href="#" class="text-white me-3"><i class="fa-brands fa-twitter"></i></a>
+                                <a href="#" class="text-white"><i class="fa-brands fa-linkedin"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>

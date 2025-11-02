@@ -13,7 +13,7 @@ $categories = Category::all(); // Lấy tất cả category
     </a>
     
     <ul class="dropdown-menu submenu">
-        <?php $__currentLoopData = $viewData['categories']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             
                 <li>
                     <a class="dropdown-item" href="#category-<?php echo e($category->id); ?>">
@@ -26,26 +26,8 @@ $categories = Category::all(); // Lấy tất cả category
     </ul>
 </li>
 
-  <li class="nav-item dropdown">
-    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-      Thiết bị ngoại vi
-    </a>
-    <ul class="dropdown-menu submenu">
-      <li><a class="dropdown-item" href="#">Màn hình</a></li>
-      <li><a class="dropdown-item" href="#">Bàn phím</a></li>
-      <li><a class="dropdown-item" href="#">Chuột</a></li>
-      <li><a class="dropdown-item" href="#">Tai nghe</a></li>
-      <li><a class="dropdown-item" href="#">Loa</a></li>
-      <li><a class="dropdown-item" href="#">Webcam</a></li>
-      <li><a class="dropdown-item" href="#">Ổ cứng/SSD gắn ngoài</a></li>
-      <li><a class="dropdown-item" href="#">USB Hub / Dock</a></li>
-      <li><a class="dropdown-item" href="#">Cáp & Chuyển đổi</a></li>
-    </ul>
-  </li>
 
-  <li class="nav-item mb-2">
-    <a class="nav-link text-dark" href="#"><i class="fa-solid fa-network-wired me-2"></i> Phụ kiện</a>
-  </li>
+
   <li class="nav-item mb-2">
     <a class="nav-link text-dark" href="#"><i class="fa-solid fa-bug me-2"></i> Thông tin</a>
   </li>
