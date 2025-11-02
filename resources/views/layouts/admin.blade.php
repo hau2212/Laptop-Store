@@ -1,23 +1,23 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Admin Dashboard')</title>
+    <meta charset="UTF-8"><!-- Mã hoá ký tự -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- Responsive -->
+    <title>@yield('title', 'Admin Dashboard')</title><!-- Tiêu đề mặc định, view con có thể override -->
 
     {{-- Bootstrap & Icons --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
-    {{-- Optional custom CSS (có thể bỏ nếu muốn thuần Bootstrap) --}}
+    {{-- CSS tuỳ chọn (có thể bỏ nếu dùng thuần Bootstrap) --}}
     <link href="{{ asset('css/admin/style.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet" />
 
-    @stack('styles')
+    @stack('styles')<!-- Cho phép view con push thêm CSS -->
 </head>
 
 <body class="bg-light">
-    <div class="d-flex min-vh-100">
+    <div class="d-flex min-vh-100"><!-- Bố cục 2 cột: sidebar + nội dung; cao tối thiểu = chiều cao viewport -->
 
         {{-- Sidebar --}}
         <aside class="bg-dark text-white p-3 d-flex flex-column" style="width: 250px;">
@@ -27,6 +27,7 @@
 
             <ul class="nav flex-column">
                 <li class="nav-item mb-2">
+                    <!-- ⚠️ route 'admin.dashbroad' có thể là 'dashboard'? (ghi chú, không đổi logic) -->
                     <a href="{{ route('admin.dashbroad') }}" class="nav-link text-white d-flex align-items-center">
                         <i class="bi bi-speedometer2 me-2"></i> Dashboard
                     </a>
@@ -47,12 +48,13 @@
                     </a>
                 </li>
                 <li class="nav-item mb-2">
+                    <!-- ⚠️ route 'admin.oders.index' có thể là 'orders'? (ghi chú, không đổi logic) -->
                     <a href="{{ route('admin.oders.index') }}" class="nav-link text-white d-flex align-items-center">
                         <i class="bi bi-box-seam me-2"></i> Oders
                     </a>
                 </li>
 
-                <li class="nav-item mt-auto">
+                <li class="nav-item mt-auto"><!-- Đẩy nút logout xuống cuối sidebar -->
                     <form id="logout" action="{{ route('logout') }}" method="POST">
                         @csrf
                         <button type="submit" class="btn btn-danger w-100 d-flex align-items-center justify-content-center gap-2">
@@ -63,19 +65,19 @@
             </ul>
         </aside>
 
-        {{-- Content area --}}
+        {{-- Khu vực nội dung chính --}}
         <div class="flex-grow-1 d-flex flex-column">
-            {{-- Top Navbar --}}
+            {{-- Top Navbar cố định trên phần nội dung --}}
             <nav class="navbar navbar-light bg-white shadow-sm px-4">
                 <div class="container-fluid d-flex justify-content-end align-items-center">
-                    <img src="{{ asset('img/logo.png') }}" alt="Admin logo" class="rounded-circle me-3" width="40" height="40">
+                    <img src="{{ asset('img/logo.png') }}" alt="Admin logo" class="rounded-circle me-3" width="40" height="40"><!-- Avatar/logo admin -->
                     <span class="fw-semibold text-dark">Admin</span>
                 </div>
             </nav>
 
-            {{-- Page content --}}
+            {{-- Nội dung trang động --}}
             <main class="flex-grow-1 p-4">
-                @yield('content')
+                @yield('content')<!-- View con render tại đây -->
             </main>
 
             {{-- Footer --}}
@@ -91,8 +93,8 @@
         </div>
     </div>
 
-    {{-- Bootstrap JS --}}
+    {{-- Bootstrap JS (bundle kèm Popper) --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    @stack('scripts')
+    @stack('scripts')<!-- Cho phép view con push thêm JS -->
 </body>
 </html>
