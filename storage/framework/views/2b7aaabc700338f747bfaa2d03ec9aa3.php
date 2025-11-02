@@ -45,15 +45,18 @@
             </a>
             
                 <div class="flex-grow-1 mx-3">
-                <input class="form-control w-100" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
-                <datalist id="datalistOptions">
-                    <option value="WorkStation">
-                    <option value="Office">
-                    <option value="Gaming">
-                    <option value="Computer">
-                </datalist>
+                    <form action="<?php echo e(route('products.search')); ?>" method="GET" class="d-flex">
+                        <input 
+                            class="form-control me-2" 
+                            type="search" 
+                            name="query" 
+                            placeholder="Tìm kiếm sản phẩm..." 
+                            aria-label="Search"
+                            list="datalistOptions"
+                            value="<?php echo e(request('query')); ?>"
+                        >
+                    </form>
                 </div>
-
                 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
                 aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">

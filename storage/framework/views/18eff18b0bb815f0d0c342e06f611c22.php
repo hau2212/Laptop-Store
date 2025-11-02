@@ -16,7 +16,7 @@ $categories = Category::all(); // Lấy tất cả category
         <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             
                 <li>
-                    <a class="dropdown-item" href="#category-<?php echo e($category->id); ?>">
+                    <a class="dropdown-item" href="<?php echo e(url('categories/' . $category->id)); ?>">
                         <?php echo e($category->name); ?>
 
                     </a>
@@ -25,6 +25,8 @@ $categories = Category::all(); // Lấy tất cả category
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </ul>
 </li>
+
+
 
 
 
