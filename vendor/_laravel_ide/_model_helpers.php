@@ -979,6 +979,7 @@ namespace App\Models {
    * @property int $id
    * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Item> $items
    * @property-read int|null $items_count
+   * @property-read \App\Models\Category $category
    * @method static \Illuminate\Database\Eloquent\Builder<Product>|Product whereId($value)
    * @method static \Illuminate\Database\Eloquent\Builder<Product>|Product whereName($value)
    * @method static \Illuminate\Database\Eloquent\Builder<Product>|Product whereSlug($value)

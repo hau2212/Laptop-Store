@@ -11,7 +11,8 @@
     </div>
     <div class="card-body">
         <p><b>Date:</b> {{ $order->getCreatedAt() }}</p>
-        
+        <p><b>Địa chỉ giao hàng:</b> {{ $order->address }}</p>
+        <p><b>Số điện thoại:</b> {{ $order->phone }}</p>
         <table class="table table-bordered table-striped text-center align-middle">
             <thead class="table-dark">
                 <tr>
