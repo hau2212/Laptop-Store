@@ -20,7 +20,7 @@
         <div class="table-responsive">
             <table class="table table-bordered table-hover align-middle text-center bg-white">
                 <thead class="table-primary">
-                    <tr>
+                    <tr>                    
                         <th>Image</th>
                         <th>ID</th>
                         <th>Name</th>

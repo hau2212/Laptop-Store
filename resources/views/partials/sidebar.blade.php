@@ -16,7 +16,7 @@ $categories = Category::all(); // Lấy tất cả category
         @foreach ($categories as $category)
             
                 <li>
-                    <a class="dropdown-item" href="#category-{{ $category->id }}">
+                    <a class="dropdown-item" href="{{ url('categories/' . $category->id) }}">
                         {{ $category->name }}
                     </a>
                 </li>
