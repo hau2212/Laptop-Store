@@ -87,6 +87,7 @@
                         @endforeach
 
                         
+                        
                     </tbody>
                     <tfoot>
                         <tr class="table-secondary">
