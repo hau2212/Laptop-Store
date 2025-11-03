@@ -1,5 +1,6 @@
 @extends('layouts.app') {{-- Kế thừa layout chung --}}
 @section('title', $viewData["title"])      {{-- Set <title> --}}
+    
 @section('subtitle', $viewData["subtitle"]){{-- Phụ đề nếu layout có dùng --}}
 
 @section('content')

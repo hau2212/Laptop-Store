@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Seeders;
+use Carbon\Carbon;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -32,7 +33,7 @@ class ProductSeeder extends Seeder
 
         foreach ($categories as $catId) {
             // Tạo ít nhất 10 sản phẩm cho mỗi category
-            for ($i = 1; $i <= 10; $i++) {
+            for ($i = 1; $i <= 30; $i++) {
                 $brand = $brands[array_rand($brands)];
                 $seriesName = $series[array_rand($series)];
                 $cpu = $cpus[array_rand($cpus)];
@@ -85,7 +86,7 @@ class ProductSeeder extends Seeder
                 ];
             }
         }
-
+           
         DB::table('products')->insert($products);
     }
 }

@@ -41,6 +41,15 @@ class CategorySeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
+            [
+                'name' => 'laptop đồ họa',
+                'description' => 'Máy trạm phục vụ đồ họa, render, AI, kỹ thuật chuyên sâu.',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+          
+
+           
            
         ]);
     }

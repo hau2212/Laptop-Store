@@ -5,6 +5,7 @@
 @section('title', $viewData['title'])
 
 @section('content')
+
 <div class="home_container">
     <div class="container mt-5">
         <!-- Header -->
@@ -36,7 +37,7 @@
         <div class="row g-4">
             <div class="col-md-6 col-lg-4">
             <article class="card h-100 shadow-sm border-0">
-                <img src="{{ asset('img/rog-zephyrus-2025.png') }}" class="card-img-top" alt="ROG Zephyrus 2025">
+                <img src="{{ asset('storage/products/1.png') }}" class="card-img-top" alt="ROG Zephyrus 2025">
                 <div class="card-body">
                 <div class="small text-muted mb-1">Laptop • 2025</div>
                 <h5 class="card-title">ROG Zephyrus 2025 — Siêu mỏng nhẹ, hiệu năng khủng</h5>
@@ -48,7 +49,7 @@
 
             <div class="col-md-6 col-lg-4">
             <article class="card h-100 shadow-sm border-0">
-                <img src="{{ asset('img/thinkpad-x1-carbon-2025.png') }}" class="card-img-top" alt="ThinkPad X1 Carbon 2025">
+                <img src="{{ asset('storage/products/2.png') }}" class="card-img-top" alt="ThinkPad X1 Carbon 2025">
                 <div class="card-body">
                 <div class="small text-muted mb-1">Ultrabook • 2025</div>
                 <h5 class="card-title">ThinkPad X1 Carbon 2025 — Hiệu năng AI và độ bền huyền thoại</h5>
@@ -60,7 +61,7 @@
 
             <div class="col-md-6 col-lg-4">
             <article class="card h-100 shadow-sm border-0">
-                <img src="{{ asset('img/macbook-pro-m4-pro.png') }}" class="card-img-top" alt="MacBook Pro M4 Pro (tin đồn)">
+                <img src="{{ asset('storage/products/3.png') }}" class="card-img-top" alt="MacBook Pro M4 Pro (tin đồn)">
                 <div class="card-body">
                 <div class="small text-muted mb-1">Apple • Tin đồn</div>
                 <h5 class="card-title">MacBook Pro M4 Pro — Nâng cấp toàn diện, pin cực trâu</h5>
@@ -72,7 +73,7 @@
 
             <div class="col-md-6 col-lg-4">
             <article class="card h-100 shadow-sm border-0">
-                <img src="{{ asset('img/acer-swift-go-ai-2025.png') }}" class="card-img-top" alt="Acer Swift Go AI 2025">
+                <img src="{{ asset('storage/products/4.png') }}" class="card-img-top" alt="Acer Swift Go AI 2025">
                 <div class="card-body">
                 <div class="small text-muted mb-1">AI PC • 2025</div>
                 <h5 class="card-title">Acer Swift Go AI 2025 — Laptop AI giá “mềm”</h5>
@@ -84,7 +85,7 @@
 
             <div class="col-md-6 col-lg-4">
             <article class="card h-100 shadow-sm border-0">
-                <img src="{{ asset('img/lenovo-legion-pro-2025.png') }}" class="card-img-top" alt="Lenovo Legion Pro 2025">
+                <img src="{{ asset('storage/products/5.png') }}" class="card-img-top" alt="Lenovo Legion Pro 2025">
                 <div class="card-body">
                 <div class="small text-muted mb-1">Gaming • 2025</div>
                 <h5 class="card-title">Lenovo Legion Pro 2025 — “Quái vật” RTX 50 Series</h5>
@@ -96,7 +97,7 @@
 
             <div class="col-md-6 col-lg-4">
             <article class="card h-100 shadow-sm border-0">
-                <img src="{{ asset('img/deal-rtx4060-2025.png') }}" class="card-img-top" alt="Deal RTX 4060 2025">
+                <img src="{{ asset('storage/products/6.png') }}" class="card-img-top" alt="Deal RTX 4060 2025">
                 <div class="card-body">
                 <div class="small text-muted mb-1">Deal • Sốc</div>
                 <h5 class="card-title">Giảm sốc RTX 4060 Laptop — Giá chỉ 27.9 triệu!</h5>
@@ -114,7 +115,7 @@
         <div class="row g-4">
             <div class="col-md-6 col-lg-4">
             <div class="card h-100 shadow-sm border-0">
-                <img src="{{ asset('img/cpu-lunar-lake-ryzen-ai-300.png') }}" class="card-img-top" alt="CPU 2025 Intel Lunar Lake & AMD Ryzen AI 300">
+                <img src="{{ asset('storage/products/7.png') }}" class="card-img-top" alt="CPU 2025 Intel Lunar Lake & AMD Ryzen AI 300">
                 <div class="card-body">
                 <h5 class="card-title">CPU mới nhất</h5>
                 <ul>
@@ -128,7 +129,7 @@
 
             <div class="col-md-6 col-lg-4">
             <div class="card h-100 shadow-sm border-0">
-                <img src="{{ asset('img/gpu-rtx-50-laptop.png') }}" class="card-img-top" alt="NVIDIA GeForce RTX 50 Laptop">
+                <img src="{{ asset('storage/products/8.png') }}" class="card-img-top" alt="NVIDIA GeForce RTX 50 Laptop">
                 <div class="card-body">
                 <h5 class="card-title">GPU mới nhất</h5>
                 <p><strong>NVIDIA RTX 50 Laptop</strong> — hiệu suất đồ họa, AI vượt trội. Ray Tracing thế hệ mới, DLSS 4, giảm điện năng đáng kể.</p>
